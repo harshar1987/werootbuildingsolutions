@@ -107,7 +107,7 @@ const Home: NextPage = () => {
             Contact us
           </Button>
           <Button
-            variant="text"
+            variant="outlined"
             color="secondary"
             sx={{
               marginLeft: 2,
@@ -115,7 +115,6 @@ const Home: NextPage = () => {
               fontSize: "1.25rem",
               textTransform: "capitalize",
               borderColor: "rgba(0,120,0,1)",
-              textDecoration: "underline",
               marginTop: "1.5rem",
               "&:hover": {
                 background: "#fff",
