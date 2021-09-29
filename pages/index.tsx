@@ -1,176 +1,101 @@
-import { Paper, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import home from "../public/home.png";
+import styles from "./index.module.css";
 
 const Home: NextPage = () => {
-  const [imageHeight, setImageHieght] = useState(0);
-
-  const setParentRef = (element: HTMLDivElement) => {
-    if (element) {
-      const navigationRect =
-        element.parentElement?.firstElementChild?.getBoundingClientRect();
-      const navigationHeight = navigationRect?.height ?? 0;
-      const navigationTop = navigationRect?.top ?? 0;
-      const imageHeight = window.innerHeight - navigationHeight - navigationTop;
-      setImageHieght(imageHeight);
-    }
-  };
   return (
     <>
-      <Box
-        style={{
-          width: "100%",
-          height: `${imageHeight}px`
-        }}
-        ref={setParentRef}
-      >
-        <Paper
-         elevation={0}
-          sx={{
-            width: "45%",
-            position: "absolute",
-            height: "500px",
-            top: "150px",
-            left: "10px",
-            padding: 10
-          }}
-        >
-          <Image src={home} alt="home" layout="fill" />
-        </Paper>
-        <Paper
-          elevation={0}
-          style={{
-            width: "50%",
-            position: "absolute",
-            height: "23rem",
-            top: "150px",
-            right: "10px",
-            padding: 10,
-          }}
-        >
-          <div style={{ display: "flex" }}>
-            <Typography
-              component="h1"
-              sx={{ fontSize: "32px", fontWeight: 600 }}
-            >
-              Dream big !!
-            </Typography>
-            <Typography
-              component="h1"
-              sx={{
-                fontSize: "32px",
-                fontWeight: 600,
-                display: "flex",
-                color: "rgba(0,104,20,1)",
-                marginLeft: 1,
-              }}
-            >
-              and worry not
-            </Typography>
+      <Grid container>
+        <Grid item xs={12}>
+          <div className={styles.flex}>
+            <div className={styles.homeImage}>
+              <Image src={home} alt="home" width={4000} height={3000} />
+            </div>
+            <div className={styles.homeContent}>
+              <Grid container spacing={0} sx={{ margin: "0.5rem" }}>
+                <Grid item xs={12}>
+                  <Typography
+                    component="h1"
+                    sx={{ fontSize: 32, fontWeight: 600 }}
+                  >
+                    Dream big !!{" "}
+                    <span className={styles.higlightedText}>and worry not</span>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography
+                    component="h1"
+                    sx={{ fontSize: 24, fontWeight: 550 }}
+                  >
+                    We are here to assist you to root your dreams into reality
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography component="p" sx={{ fontSize: 20, marginTop: 1 }}>
+                    <span className={styles.higlightedText}>
+                      We Root Building Solutions
+                    </span>{" "}
+                    is evolved to provide building solutions with optimized and
+                    innovative state of art designs, utilizing specialized
+                    expertise from our experienced engineers.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography component="p" sx={{ marginTop: 1, fontSize: 20 }}>
+                    Our businesses is characterized by professionalism and high
+                    standards utmost focus on delivering high quality service to
+                    our clients.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Grid container spacing={0}>
+                    <Grid item>
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: "rgba(0,104,20,1)",
+                          fontSize: "1.25rem",
+                          marginTop: "1.5rem",
+                          textTransform: "capitalize",
+                          "&:hover": {
+                            background: "rgba(0,120,0,1)",
+                          },
+                        }}
+                      >
+                        Contact us
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        sx={{
+                          marginLeft: 2,
+                          color: "rgba(0,104,20,1)",
+                          fontSize: "1.25rem",
+                          textTransform: "capitalize",
+                          borderColor: "rgba(0,120,0,1)",
+                          marginTop: "1.5rem",
+                          "&:hover": {
+                            background: "rgba(0,104,20,1)",
+                            color: "#fff",
+                          },
+                        }}
+                      >
+                        More about us
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
           </div>
-          <Typography component="h1" sx={{ fontSize: "24px", fontWeight: 550 }}>
-            We are here to assist you to root your dreams into reality
-          </Typography>
-          <Typography
-            component="p"
-            sx={{ marginTop: "10px", fontSize: "20px" }}
-          >
-            <span style={{color: "rgba(0,104,20,1)", fontWeight: "bold"}}>We Root Building Solutions</span> is evolved to provide building solutions
-            with optimized and innovative state of art designs, utilizing
-            specialized expertise from our experienced engineers.
-          </Typography>
-          <Typography
-            component="p"
-            sx={{ marginTop: "10px", fontSize: "20px" }}
-          >
-            Our businesses is characterized by professionalism and high
-            standards utmost focus on delivering high quality service to our
-            clients
-          </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "rgba(0,104,20,1)",
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              textTransform: "capitalize",
-              "&:hover": {
-                background: "rgba(0,120,0,1)"
-              },
-            }}
-          >
-            Contact us
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{
-              marginLeft: 2,
-              color: "rgba(0,104,20,1)",
-              fontSize: "1.25rem",
-              textTransform: "capitalize",
-              borderColor: "rgba(0,120,0,1)",
-              marginTop: "1.5rem",
-              "&:hover": {
-                background: "#fff",
-                color: "rgba(0,104,20,1)",
-                textDecoration: "underline",
-              },
-            }}
-          >
-            More about us
-          </Button>
-        </Paper>
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          zIndex: 1,
-          height: "150px",
-          background: "rgba(34,60,0,1)",
-          position: "relative"
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            right: "10px",
-            width: "350px",
-            color: "#fff",
-            margin: "20px",
-          }}
-        >
-          <Typography sx={{ marginBottom: "10px", fontWeight: "bold" }}>
-            <Link href="/contact">
-              <a>Contact us</a>
-            </Link>
-          </Typography>
-          {/* <Typography>We Root Building Solutions</Typography>
-          <Typography>No. 258, 2nd Floor</Typography>
-          <Typography>7th main, BCC Layout</Typography>
-          <Typography>Bengaluru – 560040</Typography> */}
-          <Typography>E-Mail: werootsolutions@gmail.com</Typography>
-          <Typography>Mobile: 7483979400</Typography>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            left: "10px",
-            bottom: "0px",
-            width: "350px",
-            color: "#fff",
-            margin: "20px",
-          }}
-        >
-          <Typography>© Copyright 2021 All rights reserved</Typography>
-        </div>
-      </Box>
+        </Grid>
+      </Grid>
     </>
   );
 };

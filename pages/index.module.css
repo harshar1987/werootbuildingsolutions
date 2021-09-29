@@ -1,0 +1,29 @@
+.flex {
+  display: flex;
+}
+
+
+.higlightedText {
+  color: rgba(0, 104, 20, 1);
+  font-weight: 600;
+}
+
+.homeImage {
+  margin: 1rem;
+  width: 45%;
+}
+
+.homeContent {
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .homeImage {
+    display: none;
+  }
+
+  .homeContent {
+    left: 10px;
+    width: 100%;
+  }
+}

@@ -1,102 +1,98 @@
+import FacebookIcon from "@mui/icons-material/Facebook";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Typography } from "@mui/material";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import classNames from "classnames";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import * as React from "react";
 import tree from "../public/tree.png";
+import styles from "./layout.module.css";
 
-function Navigation() {
+function Header() {
   const router = useRouter();
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        background: "rgba(34,60,0,1)",
-        position: "sticky",
-        top: 0,
-        zIndex: 1,
-      }}
-    >
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              paddingBottom: "16px",
-              paddingLeft: "12px",
-              "&:hover": {
-                background: "rgba(34,52,0,1)",
-                cursor: "pointer",
-              },
-            }}
-            onClick={(e) => {
-              router.push("/");
-            }}
-          >
+    <Grid container spacing={2} className={styles.headerGridContainer}>
+      <Grid item xs={12}>
+        <div className={styles.headerContainer}>
+          <HomeOutlinedIcon className={styles.headerLogo} />
+          <div className={styles.headerCompanyContainer}>
+            <Typography className={styles.headerCompanyName}>
+              We root building solutions
+            </Typography>
             <div
-              style={{
-                marginRight: "12px",
-                marginTop: "10px",
-              }}
+              className={classNames(
+                styles.flex,
+                styles.flexDirectionRowReverse
+              )}
             >
-              <Box>
-                <HomeOutlinedIcon
-                  sx={{
-                    color: "#fff",
-                    fontSize: "2rem",
-                  }}
-                />
-              </Box>
+              <Image src={tree} alt="tree" width={25} height={25}></Image>
+              <Typography className={styles.headerCompanySlogan}>
+                Rooting your dreams
+              </Typography>
             </div>
-            <div
-              style={{
-                paddingLeft: "14px",
-              }}
-            >
-              <div>
-                <Typography
-                  style={{
-                    color: "#fff",
-                    whiteSpace: "nowrap",
-                    fontWeight: "bold",
-                    padding: "5px 5px 0px 5px",
-                  }}
-                >
-                  We root building solutions
-                </Typography>
-              </div>
-              <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-                <Image src={tree} alt="tree" width={25} height={25}></Image>
-                <Typography
-                  style={{
-                    fontStyle: "italic",
-                    fontSize: "0.9rem",
-                    float: "right",
-                    color: "#fff",
-                    paddingRight: "5px",
-                    fontFamily: "cursive",
-                  }}
-                >
-                  Rooting your dreams
-                </Typography>
-              </div>
-            </div>
-          </Box>
-        </Grid>
+          </div>
+        </div>
       </Grid>
-    </Box>
+    </Grid>
   );
 }
 
+function Footer() {
+  return (
+    <Grid container spacing={2} className={styles.footerContainer}>
+      <Grid item xs={12}>
+        <div>
+          <div
+            className={classNames(styles.flex, styles.flexJustifyContentCenter)}
+          >
+            <div className={styles.footerSocialIconsContainer}>
+              <a href="https://facebook.com" target="_">
+                <FacebookIcon className={styles.footerSocialIcons} />
+              </a>
+            </div>
+            <div className={styles.footerSocialIconsContainer}>
+              <a href="https://www.instagram.com/" target="_">
+                <InstagramIcon className={styles.footerSocialIcons} />
+              </a>
+            </div>
+            <div className={styles.footerSocialIconsContainer}>
+              <a href="https://www.youtube.com/" target="_">
+                <YouTubeIcon className={styles.footerSocialIcons} />
+              </a>
+            </div>
+          </div>
+          <div
+            className={classNames(
+              styles.flex,
+              styles.flexFlowColumnWrap,
+              styles.flexAlignContentFlexEnd,
+              styles.footerContactUsContainer
+            )}
+          >
+            <div className={styles.footerContactUsText}>Contact Us</div>
+            <div>Email: werootsolutions@gmail.com</div>
+            <div>Phone: +91 7483979400</div>
+          </div>
+        </div>
+      </Grid>
+      <Grid item xs={12}></Grid>
+    </Grid>
+  );
+}
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Navigation />
+      <Head>
+        <title>We root building solutions</title>
+      </Head>
+      <Header />
       {children}
+      <Footer />
     </>
   );
 };
