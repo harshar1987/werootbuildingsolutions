@@ -68,7 +68,7 @@
 
 @media only screen and (max-width: 600px) {
     .footerContainer {
-      margin-top: 10px;
+      margin-top: 10px !important;
     }
   }
 
