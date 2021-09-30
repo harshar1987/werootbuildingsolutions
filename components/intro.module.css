@@ -1,0 +1,40 @@
+.flex {
+  display: flex;
+}
+
+.higlightedText {
+  color: rgba(0, 104, 20, 1);
+  font-weight: 600;
+}
+
+.homeImage {
+  margin: 1rem;
+  width: 45%;
+}
+
+.homeContent {
+  width: 50%;
+}
+
+.primaryButton {
+  border-color: rgba(0, 104, 20, 1);
+  color: rgba(0, 104, 20, 1);
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  text-transform: capitalize;
+}
+
+div .primaryButton:hover {
+  border-color: rgba(0, 96, 20, 1);
+}
+
+@media only screen and (max-width: 600px) {
+  .homeImage {
+    display: none;
+  }
+
+  .homeContent {
+    left: 10px;
+    width: 100%;
+  }
+}

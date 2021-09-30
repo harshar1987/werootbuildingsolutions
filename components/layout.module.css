@@ -2,32 +2,19 @@
   display: flex;
 }
 
-.flexDirectionRowReverse {
-  flex-direction: row-reverse;
-}
-
-.flexJustifyContentCenter {
-  justify-content: center;
-}
-
-.flexAlignContentFlexEnd{
-    align-content: flex-end;
-}
-
-.flexFlowColumnWrap {
-    flex-flow: column wrap;
-}
-
 .headerGridContainer {
-    background: rgba(34, 60, 0, 1);
-    position: sticky;
-    top: 0;
-    z-index: 1;
+  background: rgba(34, 60, 0, 1);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .headerContainer {
   padding-bottom: 10px;
-  display: flex;
+}
+
+div .headerLogo:hover {
+  cursor: pointer;
 }
 
 .headerLogoContainer {
@@ -48,6 +35,10 @@
   padding: 5px 5px 0px 5px;
 }
 
+.headerCompanySloganContainer {
+  flex-direction: row-reverse;
+}
+
 .headerCompanySlogan {
   font-style: italic;
   font-size: 0.9rem;
@@ -64,13 +55,18 @@
 
 .footerContainer {
   background: rgba(34, 60, 0, 1);
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
-    .footerContainer {
-      margin-top: 10px !important;
-    }
+  .footerContainer {
+    margin-top: 10px !important;
   }
+}
+
+.footerSocialIconsContainerBox {
+  justify-content: center;
+}
 
 .footerSocialIconsContainer {
   padding: 10px;
@@ -89,13 +85,35 @@ div .footerSocialIconsContainer:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.footerContactUsContainer {
-    color: #fff;
-    padding: 10px;
+.footerSectionGroupContainer {
+  justify-content: flex-end;
 }
 
-.footerContactUsText {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+.footerSectionContainer {
+  color: #fff;
+  padding: 10px;
+  margin: 1rem;
+  flex-flow: column wrap;
+  align-content: flex-end;
+}
+
+.footerSectionCopyrights {
+  color: #fff;
+  padding: 10px;
+}
+
+.footerSectionHeader {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .footerSectionGroupContainer {
+    justify-content: start;
+  }
+
+  .footerSectionContainer {
+    margin: 0;
+  }
 }
