@@ -20,7 +20,7 @@ function Header() {
 
   return (
     <Grid container spacing={2} className={styles.headerGridContainer}>
-      <Grid item xs={12} sx={{ paddingTop: "8px !important" }}>
+      <Grid item xs={12} sx={{ paddingTop: "0px !important" }}>
         <Box className={styles.topNavigation}>
           <Box className={styles.topNavigationContentBox}>
             <Typography className={styles.topNavigationText}>
