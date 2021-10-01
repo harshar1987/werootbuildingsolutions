@@ -12,33 +12,80 @@ import { useRouter } from "next/router";
 import * as React from "react";
 import tree from "../public/tree.png";
 import styles from "./layout.module.css";
+import Divider from "@mui/material/Divider";
+import Logo from "./logo";
 
 function Header() {
   const router = useRouter();
 
   return (
     <Grid container spacing={2} className={styles.headerGridContainer}>
-      <Grid item xs={12}>
+      <Grid item xs={12} sx={{ paddingTop: "8px !important" }}>
+        <Box className={styles.topNavigation}>
+          <Box className={styles.topNavigationContentBox}>
+            <Typography className={styles.topNavigationText}>
+              + 91 8884 8282 11
+            </Typography>
+          </Box>
+          <Divider
+            orientation="vertical"
+            className={styles.topNavigationContentDivider}
+            flexItem
+          />
+          <Box className={styles.topNavigationContentBox}>
+            <Link href="/about">
+              <a>
+                <Typography
+                  className={styles.topNavigationText}
+                  sx={{ textDecoration: "underline" }}
+                >
+                  About us
+                </Typography>
+              </a>
+            </Link>
+          </Box>
+          <Divider
+            orientation="vertical"
+            className={styles.topNavigationContentDivider}
+            flexItem
+          />
+          <Box className={styles.topNavigationContentBox}>
+            <Link href="/about">
+              <a>
+                <Typography
+                  className={styles.topNavigationText}
+                  sx={{ textDecoration: "underline" }}
+                >
+                  Contact us
+                </Typography>
+              </a>
+            </Link>
+          </Box>
+        </Box>
+      </Grid>
+      <Grid item xs={12} sx={{ paddingTop: "8px !important" }}>
         <Box className={classNames(styles.flex, styles.headerContainer)}>
-          <HomeOutlinedIcon
+          {/* <HomeOutlinedIcon
             className={styles.headerLogo}
             onClick={(e) => router.push("/")}
-          />
+          /> */}
+          {/* <Image src={GVLOGO} alt="home" width={75} height={75}/> */}
+          <Box className={styles.headerLogo}>
+            <Logo style={{ fill: "rgb(82,33,39)" }} />
+          </Box>
           <Box className={styles.headerCompanyContainer}>
+          <Box className={styles.flex}>
             <Typography className={styles.headerCompanyName}>
               WeRoot Building Solutions
             </Typography>
-            <Box className={classNames(styles.flex, styles.headerCompanySloganContainer)}>
-              <Image src={tree} alt="tree" width={25} height={25}></Image>
+            </Box>
+            <Box className={styles.flex}>
               <Typography className={styles.headerCompanySlogan}>
-                Rooting your dreams
+                Rooting your dreams...
               </Typography>
             </Box>
           </Box>
         </Box>
-      </Grid>
-      <Grid>
-        <Box></Box>
       </Grid>
     </Grid>
   );
@@ -47,7 +94,12 @@ function Header() {
 function Footer() {
   return (
     <Box className={styles.footerContainer}>
-      <Box className={classNames(styles.flex, styles.footerSocialIconsContainerBox)}>
+      <Box
+        className={classNames(
+          styles.flex,
+          styles.footerSocialIconsContainerBox
+        )}
+      >
         <Box className={styles.footerSocialIconsContainer}>
           <a
             href="https://www.facebook.com/WeRoot-Building-Solutions-101112895676552"
@@ -77,10 +129,7 @@ function Footer() {
       >
         <Grid item>
           <Box
-            className={classNames(
-              styles.flex,
-              styles.footerSectionContainer
-            )}
+            className={classNames(styles.flex, styles.footerSectionContainer)}
           >
             <Link href="/about">
               <a>
@@ -97,10 +146,7 @@ function Footer() {
 
         <Grid item>
           <Box
-            className={classNames(
-              styles.flex,
-              styles.footerSectionContainer
-            )}
+            className={classNames(styles.flex, styles.footerSectionContainer)}
           >
             <Link href="/contact">
               <a>
@@ -121,7 +167,7 @@ function Footer() {
                 </span>
               </a>
             </Typography>
-            <Typography>Phone: +91 8884 8282</Typography>
+            <Typography>Phone: +91 8884 8282 11</Typography>
           </Box>
         </Grid>
       </Grid>

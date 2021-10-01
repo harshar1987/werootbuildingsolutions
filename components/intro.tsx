@@ -2,12 +2,24 @@ import { Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import home from "../public/home.png";
 import styles from "./intro.module.css";
+import LeaveUsMessageDialog from "./leaveusmessage";
 
 const Intro = () => {
+  const [leaveUsMessageDialogOpen, setLeaveUsMessageDialogOpen] = useState(false);
+
+  const handleLeaveUsMessageDialogClose = () => {
+    setLeaveUsMessageDialogOpen(false);
+  }
+
+  const handleLeaveUsMessageDialogOpen = () => {
+    setLeaveUsMessageDialogOpen(true);
+  }
+
   return (
+    <>
     <Grid container sx={{ marginTop: 5 }}>
       <Grid item xs={12}>
         <Box className={styles.flex}>
@@ -63,7 +75,7 @@ const Intro = () => {
               <Grid item xs={12}>
                 <Grid container spacing={0} sx={{ justifyContent: "center" }}>
                   <Grid item>
-                    <Button variant="outlined" className={styles.primaryButton}>
+                    <Button variant="outlined" className={styles.primaryButton} onClick={handleLeaveUsMessageDialogOpen}>
                       Leave us a message
                     </Button>
                   </Grid>
@@ -74,6 +86,11 @@ const Intro = () => {
         </Box>
       </Grid>
     </Grid>
+    <LeaveUsMessageDialog
+        open={leaveUsMessageDialogOpen}
+        onClose={handleLeaveUsMessageDialogClose}
+      />
+    </>
   );
 };
 

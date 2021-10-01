@@ -3,7 +3,7 @@
 }
 
 .headerGridContainer {
-  background: rgba(34, 60, 0, 1);
+  background: #fff;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -11,6 +11,7 @@
 
 .headerContainer {
   padding-bottom: 10px;
+  background: rgba(34, 60, 0, 1);
 }
 
 div .headerLogo:hover {
@@ -22,10 +23,9 @@ div .headerLogo:hover {
 }
 
 .headerLogo {
-  margin-top: 22px;
-  margin-left: 12px;
-  color: #fff;
-  font-size: 2rem;
+  background: rgb(142,127,0);
+  border-radius: 50%;
+  margin: 1rem 0rem 1rem 1rem;
 }
 
 .headerCompanyName {
@@ -35,22 +35,18 @@ div .headerLogo:hover {
   padding: 5px 5px 0px 5px;
 }
 
-.headerCompanySloganContainer {
-  flex-direction: row-reverse;
-}
-
 .headerCompanySlogan {
   font-style: italic;
   font-size: 0.9rem;
   float: right;
   color: #fff;
-  padding-right: 5px;
+  padding-left: 5px;
   font-family: cursive;
 }
 
 .headerCompanyContainer {
-  padding-left: 14px;
-  padding-top: 16px;
+  padding-left: 0.1rem;
+  margin-top: 2.8rem;
 }
 
 .footerContainer {
@@ -116,4 +112,24 @@ div .footerSocialIconsContainer:hover {
   .footerSectionContainer {
     margin: 0;
   }
+}
+
+.topNavigation {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+.topNavigationContentBox{
+  padding: 0.5rem;
+}
+
+.topNavigationText {
+  font-size: 0.9rem !important;
+}
+
+.topNavigationContentDivider {
+  border-color: rgba(0, 104, 20, 1) !important;
+  height: 1.5rem !important;
+  margin-top: 0.5rem !important;
 }

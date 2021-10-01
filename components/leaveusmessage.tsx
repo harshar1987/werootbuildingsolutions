@@ -1,6 +1,7 @@
 import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
+import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
@@ -48,32 +49,40 @@ const StyledDialogTitle = (props: DialogTitleProps) => {
   );
 };
 
-export interface LearnMoreDialog {
-  title: string;
-  content: React.ReactNode;
+export interface LeaveUsMessageDialog {
   open: boolean;
-  handleClose: () => void;
+  onClose: () => void;
 }
 
-export default function LearnMoreDialog({
-  title,
-  content,
+export default function LeaveUsMessageDialog({
   open,
-  handleClose,
-}: LearnMoreDialog) {
+  onClose,
+}: LeaveUsMessageDialog) {
+  const handleClose = () => {
+    onClose();
+  };
+
   return (
-    <div>
-      <StyledDialog
+    <StyledDialog
+      onClose={handleClose}
+      aria-labelledby="learn-more-dialog"
+      open={open}
+    >
+      <StyledDialogTitle
+        title={"Leave us a message"}
         onClose={handleClose}
-        aria-labelledby="learn-more-dialog"
-        open={open}
-      >
-        <StyledDialogTitle
-          title={title}
-          onClose={handleClose}
-        ></StyledDialogTitle>
-        <DialogContent dividers>{content}</DialogContent>
-      </StyledDialog>
-    </div>
+      ></StyledDialogTitle>
+      <DialogContent>
+      <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Name"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+      </DialogContent>
+    </StyledDialog>
   );
 }
