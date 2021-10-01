@@ -19,10 +19,10 @@ const AdvisoryServicesContent = () => {
       <Typography gutterBottom>
         From{" "}
         <span className={styles.learnMoreTextHighLight}>
-          initial discussions with architect and builders to detailed project
+          initial discussions with architects and builders to detailed project
           report
         </span>{" "}
-        our experts help our clients throughout to take right decisions.
+        our experts help our clients throughout to take the right decisions.
       </Typography>
       <Typography gutterBottom>
         With our{" "}
