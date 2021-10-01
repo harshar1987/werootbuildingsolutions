@@ -8,8 +8,8 @@
 }
 
 .ourServicesSectionText {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.5rem !important;
+    font-weight: 600 !important;
     border-width: 0;
     border-style: solid;
     border-color: rgba(0, 104, 20, 1);
@@ -17,8 +17,21 @@
 }
 
 .ourServicesSectionContentGroupContainer {
+    display: flex;
     margin: 1rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .ourServicesSectionContentGroupContainer {
+        display: block;
+      }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .ourServicesSectionContentGroupContainer {
+      display: block;
+    }
+  }
 
 div .ourServicesSectionContentContainer:hover {
     cursor: pointer;
@@ -37,9 +50,9 @@ div .ourServicesSectionContentContainer:hover {
     fill: rgba(0, 104, 20, 1)
 }
 .ourServicesSectionContentHeaderText {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    justify-content: center;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    justify-content: center !important;
 }
 
 .ourServicesSectionContentTextContainer {
@@ -48,6 +61,7 @@ div .ourServicesSectionContentContainer:hover {
 
 .ourServicesSectionContentText {
     font-size: 1.1rem;
+    text-align-last: "center";
 }
 
 .learnMoreButtonContainer {
@@ -56,10 +70,11 @@ div .ourServicesSectionContentContainer:hover {
 }
 
 .learnMoreButton {
-    border-color: rgba(0, 96, 20, 1);
-    color: rgba(0, 104, 20, 1);
+    border-color: rgba(0, 96, 20, 1) !important;
+    color: rgba(0, 104, 20, 1) !important;
 }
 
 div .learnMoreButton:hover {
-    border-color: rgba(0, 96, 20, 1);
+    background: rgba(0, 96, 20, 1) !important;
+    color: #fff !important;
   }

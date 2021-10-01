@@ -26,10 +26,7 @@ function Services() {
       </Grid>
       <Grid item xs={12}>
         <Box
-          className={classNames(
-            styles.flex,
-            styles.ourServicesSectionContentGroupContainer
-          )}
+          className={styles.ourServicesSectionContentGroupContainer}
           sx={{ justifyContent: "space-between" }}
         >
           <Box className={styles.ourServicesSectionContentContainer}>
@@ -45,23 +42,54 @@ function Services() {
               Advisory services
             </Typography>
             <Box className={styles.ourServicesSectionContentTextContainer}>
-              <Typography className={styles.ourServicesSectionContentText}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      From initial discussions with architect and builders to
+                      detailed project report
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      Our experts help our clients throughout to take right
+                      decisions.
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+              {/* <Typography className={styles.ourServicesSectionContentText}>
                 From initial discussions with architect and builders to detailed
-              </Typography>
-
-              <Typography className={styles.ourServicesSectionContentText}>
-                project report our experts help our clients throughout to take
-              </Typography>
-              <Typography
+                project report
+                <span
+                  className={classNames(
+                    styles.flex,
+                    styles.ourServicesSectionContentText
+                  )}
+                  style={{ justifyContent: "center" }}
+                >
+                  Our experts help our clients throughout to take right
+                  decisions.
+                </span>
+              </Typography> */}
+              <Box
                 className={classNames(
                   styles.flex,
-                  styles.ourServicesSectionContentText
+                  styles.learnMoreButtonContainer
                 )}
-                sx={{ justifyContent: "center" }}
               >
-                right decisions
-              </Typography>
-              <Box className={classNames(styles.flex, styles.learnMoreButtonContainer)}>
                 <Button variant="outlined" className={styles.learnMoreButton}>
                   Learn more
                 </Button>
@@ -82,23 +110,40 @@ function Services() {
               Design and Engineering services
             </Typography>
             <Box className={styles.ourServicesSectionContentTextContainer}>
-              <Typography className={styles.ourServicesSectionContentText}>
-                From initial discussions with architect and builders to detailed
-              </Typography>
-
-              <Typography className={styles.ourServicesSectionContentText}>
-                project report our experts help our clients throughout to take
-              </Typography>
-              <Typography
+              <Grid container>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      From initial discussions with architect and builders to
+                      detailed project report
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      Our experts help our clients throughout to take right
+                      decisions.
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+              <Box
                 className={classNames(
                   styles.flex,
-                  styles.ourServicesSectionContentText
+                  styles.learnMoreButtonContainer
                 )}
-                sx={{ justifyContent: "center" }}
               >
-                right decisions
-              </Typography>
-              <Box className={classNames(styles.flex, styles.learnMoreButtonContainer)}>
                 <Button variant="outlined" className={styles.learnMoreButton}>
                   Learn more
                 </Button>
@@ -109,10 +154,7 @@ function Services() {
       </Grid>
       <Grid item xs={12}>
         <Box
-          className={classNames(
-            styles.flex,
-            styles.ourServicesSectionContentGroupContainer
-          )}
+          className={styles.ourServicesSectionContentGroupContainer}
           sx={{ justifyContent: "space-between" }}
         >
           <Box className={styles.ourServicesSectionContentContainer}>
@@ -128,23 +170,40 @@ function Services() {
               Project Execution and Monitoring services
             </Typography>
             <Box className={styles.ourServicesSectionContentTextContainer}>
-              <Typography className={styles.ourServicesSectionContentText}>
-                From initial discussions with architect and builders to detailed
-              </Typography>
-
-              <Typography className={styles.ourServicesSectionContentText}>
-                project report our experts help our clients throughout to take
-              </Typography>
-              <Typography
+              <Grid container>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      From initial discussions with architect and builders to
+                      detailed project report,
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      Our experts help our clients throughout to take right
+                      decisions.
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+              <Box
                 className={classNames(
                   styles.flex,
-                  styles.ourServicesSectionContentText
+                  styles.learnMoreButtonContainer
                 )}
-                sx={{ justifyContent: "center" }}
               >
-                right decisions
-              </Typography>
-              <Box className={classNames(styles.flex, styles.learnMoreButtonContainer)}>
                 <Button variant="outlined" className={styles.learnMoreButton}>
                   Learn more
                 </Button>
@@ -165,23 +224,40 @@ function Services() {
               Miscellaneous services
             </Typography>
             <Box className={styles.ourServicesSectionContentTextContainer}>
-              <Typography className={styles.ourServicesSectionContentText}>
-                From initial discussions with architect and builders to detailed
-              </Typography>
-
-              <Typography className={styles.ourServicesSectionContentText}>
-                project report our experts help our clients throughout to take
-              </Typography>
-              <Typography
+              <Grid container>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      From initial discussions with architect and builders to
+                      detailed project report
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box
+                    className={styles.flex}
+                    sx={{ justifyContent: "center" }}
+                  >
+                    <Typography
+                      className={styles.ourServicesSectionContentText}
+                    >
+                      Our experts help our clients throughout to take right
+                      decisions.
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+              <Box
                 className={classNames(
                   styles.flex,
-                  styles.ourServicesSectionContentText
+                  styles.learnMoreButtonContainer
                 )}
-                sx={{ justifyContent: "center" }}
               >
-                right decisions
-              </Typography>
-              <Box className={classNames(styles.flex, styles.learnMoreButtonContainer)}>
                 <Button variant="outlined" className={styles.learnMoreButton}>
                   Learn more
                 </Button>

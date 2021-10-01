@@ -18,6 +18,7 @@ const Intro = () => {
             <Grid container spacing={0} sx={{ margin: "0.5rem" }}>
               <Grid item xs={12}>
                 <Typography
+                  className={styles.introContentText}
                   component="h1"
                   sx={{ fontSize: "2.5rem", fontWeight: 600, marginTop: 5 }}
                 >
@@ -27,6 +28,7 @@ const Intro = () => {
               </Grid>
               <Grid item xs={12}>
                 <Typography
+                  className={styles.introContentText}
                   component="h1"
                   sx={{ fontSize: 24, fontWeight: 550 }}
                 >
@@ -34,29 +36,34 @@ const Intro = () => {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Typography component="p" sx={{ fontSize: 20, marginTop: 1 }}>
+                <Typography
+                  className={styles.introContentText}
+                  component="p"
+                  sx={{ fontSize: 20, marginTop: 1 }}
+                >
                   <span className={styles.higlightedText}>
                     WeRoot Building Solutions
                   </span>{" "}
                   is evolved to provide building solutions with optimized and
-                  innovative state of art designs, utilizing specialized
+                  innovative state of art designs utilizing specialized
                   expertise from our experienced engineers.
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Typography component="p" sx={{ marginTop: 1, fontSize: 20 }}>
+                <Typography
+                  className={styles.introContentText}
+                  component="p"
+                  sx={{ marginTop: 1, fontSize: 20 }}
+                >
                   Our businesses is characterized by professionalism and high
-                  standards utmost focus on delivering high quality service to
+                  standards with utmost focus on delivering high quality services to
                   our clients.
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Grid container spacing={0} sx={{justifyContent: "center"}}>
+                <Grid container spacing={0} sx={{ justifyContent: "center" }}>
                   <Grid item>
-                    <Button
-                      variant="outlined"
-                      className={styles.primaryButton}
-                    >
+                    <Button variant="outlined" className={styles.primaryButton}>
                       Leave us a message
                     </Button>
                   </Grid>
