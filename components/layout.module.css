@@ -30,18 +30,18 @@ div .headerLogo:hover {
 
 .headerCompanyName {
   color: #fff;
-  white-space: "nowrap";
-  font-weight: bold;
+  font-weight: 600 !important;
   padding: 5px 5px 0px 5px;
+  text-transform: uppercase !important;
 }
 
 .headerCompanySlogan {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
   float: right;
   color: #fff;
   padding-left: 5px;
-  font-family: cursive;
+  font-family: cursive !important;
 }
 
 .headerCompanyContainer {
@@ -126,6 +126,10 @@ div .footerSocialIconsContainer:hover {
 
 .topNavigationText {
   font-size: 0.9rem !important;
+}
+
+a .topNavigationText:hover {
+ color: rgba(0, 96, 20, 1) !important;
 }
 
 .topNavigationContentDivider {

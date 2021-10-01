@@ -1,18 +1,15 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Box, Typography } from "@mui/material";
+import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import classNames from "classnames";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
-import tree from "../public/tree.png";
 import styles from "./layout.module.css";
-import Divider from "@mui/material/Divider";
 import Logo from "./logo";
 
 function Header() {
@@ -20,7 +17,7 @@ function Header() {
 
   return (
     <Grid container spacing={2} className={styles.headerGridContainer}>
-      <Grid item xs={12} sx={{ paddingTop: "0px !important" }}>
+      <Grid item xs={12} sx={{ paddingTop: "2px !important" }}>
         <Box className={styles.topNavigation}>
           <Box className={styles.topNavigationContentBox}>
             <Typography className={styles.topNavigationText}>
@@ -65,11 +62,6 @@ function Header() {
       </Grid>
       <Grid item xs={12} sx={{ paddingTop: "8px !important" }}>
         <Box className={classNames(styles.flex, styles.headerContainer)}>
-          {/* <HomeOutlinedIcon
-            className={styles.headerLogo}
-            onClick={(e) => router.push("/")}
-          /> */}
-          {/* <Image src={GVLOGO} alt="home" width={75} height={75}/> */}
           <Box className={styles.headerLogo}>
             <Logo style={{ fill: "rgb(82,33,39)" }} />
           </Box>
