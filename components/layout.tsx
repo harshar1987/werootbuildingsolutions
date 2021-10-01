@@ -121,7 +121,7 @@ function Footer() {
                 </span>
               </a>
             </Typography>
-            <Typography>Phone: +91 7483979400</Typography>
+            <Typography>Phone: +91 8884 8282</Typography>
           </Box>
         </Grid>
       </Grid>

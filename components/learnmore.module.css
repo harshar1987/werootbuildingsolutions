@@ -1,0 +1,10 @@
+.dialogTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .dialogTitle {
+    width: 90%;
+  }
+}

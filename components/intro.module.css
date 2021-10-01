@@ -16,6 +16,15 @@
   width: 50%;
 }
 
+div .homeContent:hover {
+  cursor: pointer;
+  padding: 0.1rem;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
 .primaryButton {
   border-color: rgba(0, 104, 20, 1) !important;
   color: rgba(0, 104, 20, 1) !important;
@@ -42,6 +51,10 @@ div .primaryButton:hover {
   .homeContent {
     left: 10px;
     width: 100%;
+  }
+
+  p.introContentText  {
+    text-align-last: inherit !important;
   }
 }
 
