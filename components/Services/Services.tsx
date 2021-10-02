@@ -12,7 +12,7 @@ import {
 import LearnMoreDialog from "./LearnMore";
 import { MiscellaneousServicesContent } from "./MiscellaneousServicesContent";
 import { ProjectExecutionAndMonitoringServicesContent } from "./ProjectExecutionAndMonitoringServicesContent";
-import styles from "./services.module.css";
+import styles from "./Services.module.css";
 import {
   servicesData,
   advisoryServicesInfo,
