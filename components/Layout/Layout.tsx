@@ -9,7 +9,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
-import styles from "./layout.module.css";
+import styles from "./Layout.module.css";
 import Logo from "./Logo";
 import { layoutData, layoutContent, layoutRoutes, layoutSocialIcons } from "./Layout.data";
 
