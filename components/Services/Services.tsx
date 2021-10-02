@@ -1,176 +1,27 @@
-import { Box, Grid, Typography, Button } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import classNames from "classnames";
 import React, { useState } from "react";
+import { AdvisoryServicesContent } from "./AdvisoryServicesContent";
+import { DesignAndEngineeringServicesContent } from "./DesignAndEngineeringServicesContent";
 import {
   Advisory,
   DesignAndEngineering,
   Miscellaneous,
   ProjectExecutionAndMonitoring,
 } from "./Images";
+import LearnMoreDialog from "./LearnMore";
+import { MiscellaneousServicesContent } from "./MiscellaneousServicesContent";
+import { ProjectExecutionAndMonitoringServicesContent } from "./ProjectExecutionAndMonitoringServicesContent";
 import styles from "./services.module.css";
-import LearnMoreDialog from "./learnmore";
-import Chip from "@mui/material/Chip";
+import {
+  servicesData,
+  advisoryServicesInfo,
+  designAndEngineeringInfo,
+  projectExecutionInfo,
+  miscellaneousInfo,
+} from "./Services.data";
 
 const EmptyLearnMoreContent = <div></div>;
-
-const AdvisoryServicesContent = () => {
-  return (
-    <Box>
-      <Typography gutterBottom>
-        From{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          initial discussions with architects and builders to detailed project
-          report
-        </span>{" "}
-        our experts help our clients throughout to take the right decisions.
-      </Typography>
-      <Typography gutterBottom>
-        With our{" "}
-        <span className={styles.learnMoreTextHighLight}>proficiency</span> and{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          domain specific dedicated teams
-        </span>{" "}
-        we fully comprehend the challenges and dynamics of the construction
-        industry and extend thorough benefit to the owners in building their
-        dream home.
-      </Typography>
-    </Box>
-  );
-};
-
-const DesignAndEngineeringServicesContent = () => {
-  return (
-    <Box>
-      <Typography gutterBottom>
-        We are always ready to take up any challenging project and strive to
-        provide the innovative and comprehensive engineering solutions to meet
-        our client design requirements. If you think you are not getting the
-        right team to handle your project, why not trust our expertise and give
-        us this opportunity to turn it into a huge success?
-      </Typography>
-      <Typography gutterBottom>
-        We provide professional{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          Design Engineering and Consultancy services{" "}
-        </span>{" "}
-        for our clients in the fields of{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          architecture and structure
-        </span>
-        . Architectural Solutions which provides{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          Plan, Basic Elevation, 3D Elevation, 3D Floor Plan and Interior
-          Designs{" "}
-        </span>
-        . Structural Solutions provides comprehensive designs for various type
-        of RCC and steel structures including special structural services like
-        Stability analysis for existing buildings and Proof checking of proposed
-        design considering all the factors specified in bureau of Indian
-        standards.
-      </Typography>
-    </Box>
-  );
-};
-
-const ProjectExecutionAndMonitoringServicesContent = () => {
-  return (
-    <Box>
-      <Typography gutterBottom>
-        <span className={styles.learnMoreTextHighLight}>
-          Proper construction and monitoring is a requisite{" "}
-        </span>
-        , from the moment Proposed Building steps in the implementation phase.
-      </Typography>
-      <Typography gutterBottom>
-        <span className={styles.learnMoreTextHighLight}>
-          From civil foundation work to complete project construction
-        </span>
-        , there should be thorough checks for construction quality to identify
-        any shortcomings existing in the project work.{" "}
-        <span className={styles.learnMoreTextHighLight}>
-          Negligence during construction and lack of monitoring
-        </span>{" "}
-        can tremendously impact the building throughout its lifespan.
-      </Typography>
-      <Typography gutterBottom>
-        Hence there is a need of having a dedicated construction team, with
-        extensive experience, knowledge of project designs and best industry
-        standard practices for continuous noticing of each activity and
-        maintaining the quality of the project.
-      </Typography>
-    </Box>
-  );
-};
-
-const MiscellaneousServicesContent = () => {
-  return (
-    <Box>
-      <Typography gutterBottom>
-        <span className={styles.learnMoreTextHighLight}>
-          With the intention to block the unwanted hassles for the client{" "}
-        </span>
-        , We Root extend its arms to support our clients in providing the right
-        services at the right time for the building specific miscellaneous
-        activities.
-      </Typography>
-      <Typography gutterBottom>
-        <span className={styles.learnMoreTextHighLight}>
-          We have partnered with some of the service providers relating to
-          building and construction{" "}
-        </span>{" "}
-        who provides best services in their respective field of expertise.
-        Client can readily opt for the service and we take the lead in reviewing
-        the work and getting the work completed on time.
-      </Typography>
-      <Typography gutterBottom>
-        <Box
-          sx={{ fontStyle: "italic", fontWeight: 600, marginTop: "1.25rem" }}
-        >
-          Miscellaneous Services offered
-        </Box>
-        <Box sx={{ marginTop: "1rem" }}>
-          <Grid container spacing={1}>
-            <Grid item>
-              <Chip
-                className={styles.chip}
-                label="Surveying"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item>
-              <Chip
-                className={styles.chip}
-                label="Geotechnical Investigation (Soil Testing)"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item>
-              <Chip
-                className={styles.chip}
-                label="Solar Electrification. - Residential"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item>
-              <Chip
-                className={styles.chip}
-                label="Property Valuation. (Asset class - Land and Building)"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item>
-              <Chip
-                className={styles.chip}
-                label="Building and property Insurance"
-                variant="outlined"
-              />
-            </Grid>
-          </Grid>
-        </Box>
-      </Typography>
-    </Box>
-  );
-};
 
 function Services() {
   type LearnMoreDetail = {
@@ -198,26 +49,26 @@ function Services() {
   };
 
   const learnMoreOnAdvisoryServices = () => {
-    handleLearnMoreOpen("Advisory Services", AdvisoryServicesContent());
+    handleLearnMoreOpen(servicesData.advisory, AdvisoryServicesContent());
   };
 
   const learnMoreOnDesignAndEngineeringServices = () => {
     handleLearnMoreOpen(
-      "Design and Engineering services",
+      servicesData.designAndEngineering,
       DesignAndEngineeringServicesContent()
     );
   };
 
   const learnMoreOnProjectExecutionAndMonitoringServices = () => {
     handleLearnMoreOpen(
-      "Project Execution and Monitoring services",
+      servicesData.projectExecution,
       ProjectExecutionAndMonitoringServicesContent()
     );
   };
 
   const learnMoreOnMiscellaneousServices = () => {
     handleLearnMoreOpen(
-      "Miscellaneous services",
+      servicesData.miscellaneous,
       MiscellaneousServicesContent()
     );
   };
@@ -253,7 +104,7 @@ function Services() {
                   styles.ourServicesSectionContentHeaderText
                 )}
               >
-                Advisory services
+                {servicesData.advisory}
               </Typography>
               <Box className={styles.ourServicesSectionContentTextContainer}>
                 <Grid container>
@@ -265,8 +116,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        From initial discussions with architect and builders to
-                        detailed project report
+                        {advisoryServicesInfo.first}
                       </Typography>
                     </Box>
                   </Grid>
@@ -278,8 +128,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        Our experts help our clients throughout to take right
-                        decisions.
+                       {advisoryServicesInfo.second}
                       </Typography>
                     </Box>
                   </Grid>
@@ -295,7 +144,7 @@ function Services() {
                     className={styles.learnMoreButton}
                     onClick={learnMoreOnAdvisoryServices}
                   >
-                    Learn more
+                    {servicesData.learnMore}
                   </Button>
                 </Box>
               </Box>
@@ -311,7 +160,7 @@ function Services() {
                   styles.ourServicesSectionContentHeaderText
                 )}
               >
-                Design and Engineering services
+               {servicesData.designAndEngineering}
               </Typography>
               <Box className={styles.ourServicesSectionContentTextContainer}>
                 <Grid container>
@@ -323,8 +172,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        We provide professional Design Engineering and
-                        Consultancy services
+                        {designAndEngineeringInfo.first}
                       </Typography>
                     </Box>
                   </Grid>
@@ -336,7 +184,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        for clients in the fields of architecture and structure.
+                        {designAndEngineeringInfo.second}
                       </Typography>
                     </Box>
                   </Grid>
@@ -352,7 +200,7 @@ function Services() {
                     className={styles.learnMoreButton}
                     onClick={learnMoreOnDesignAndEngineeringServices}
                   >
-                    Learn more
+                    {servicesData.learnMore}
                   </Button>
                 </Box>
               </Box>
@@ -374,7 +222,7 @@ function Services() {
                   styles.ourServicesSectionContentHeaderText
                 )}
               >
-                Project Execution and Monitoring services
+                {servicesData.projectExecution}
               </Typography>
               <Box className={styles.ourServicesSectionContentTextContainer}>
                 <Grid container>
@@ -386,8 +234,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        From civil foundation work to complete project
-                        construction we follow
+                        {projectExecutionInfo.first}
                       </Typography>
                     </Box>
                   </Grid>
@@ -399,8 +246,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        industry best practices for continuous monitoring of
-                        each activity
+                        {projectExecutionInfo.second}
                       </Typography>
                     </Box>
                   </Grid>
@@ -412,7 +258,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        and maintainence of utmost quality.
+                        {projectExecutionInfo.third}
                       </Typography>
                     </Box>
                   </Grid>
@@ -428,7 +274,7 @@ function Services() {
                     className={styles.learnMoreButton}
                     onClick={learnMoreOnProjectExecutionAndMonitoringServices}
                   >
-                    Learn more
+                    {servicesData.learnMore}
                   </Button>
                 </Box>
               </Box>
@@ -444,7 +290,7 @@ function Services() {
                   styles.ourServicesSectionContentHeaderText
                 )}
               >
-                Miscellaneous services
+                {servicesData.miscellaneous}
               </Typography>
               <Box className={styles.ourServicesSectionContentTextContainer}>
                 <Grid container>
@@ -456,8 +302,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        With the intention to block the unwanted hassles for our
-                        clients
+                        {miscellaneousInfo.first}
                       </Typography>
                     </Box>
                   </Grid>
@@ -469,8 +314,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        we provide right services at right time for
-                        miscellaneous
+                        {miscellaneousInfo.second}
                       </Typography>
                     </Box>
                   </Grid>
@@ -482,7 +326,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                        building specific activities
+                        {miscellaneousInfo.third}
                       </Typography>
                     </Box>
                   </Grid>
@@ -498,7 +342,7 @@ function Services() {
                     className={styles.learnMoreButton}
                     onClick={learnMoreOnMiscellaneousServices}
                   >
-                    Learn more
+                    {servicesData.learnMore}
                   </Button>
                 </Box>
               </Box>

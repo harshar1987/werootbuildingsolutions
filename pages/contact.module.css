@@ -1,0 +1,49 @@
+.flex {
+  display: flex;
+}
+
+.contactUsSectionContainer {
+  margin: 1rem !important;
+  justify-content: center;
+}
+
+.contactUsSectionText {
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 104, 20, 1);
+  border-bottom-width: 0.2rem;
+}
+
+.contactUsFormContainer {
+  margin: 1rem 3rem 3rem 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .contactUsFormContainer {
+    margin: 1rem !important;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .contactUsFormContainer {
+    margin: 1rem !important;
+  }
+}
+
+.submitButtonContainer {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.submitButton {
+  border-color: rgba(0, 104, 20, 1) !important;
+  color: rgba(0, 104, 20, 1) !important;
+  text-transform: capitalize !important;
+}
+
+div .submitButton:hover {
+  background: rgba(0, 96, 20, 1) !important;
+  color: #fff !important;
+}

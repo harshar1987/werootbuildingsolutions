@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 import React, { useState } from "react";
-import home from "../public/home.png";
-import styles from "./intro.module.css";
-import LeaveUsMessageDialog from "./leaveusmessage";
+import { layoutData } from "components/Layout/Layout.data";
+import home from "public/home.png";
+import { introData } from "./Introduction.data";
+import styles from "./Introduction.module.css";
+import LeaveUsMessageDialog from "./LeaveUsMessage";
 
 const Intro = () => {
   const [leaveUsMessageDialogOpen, setLeaveUsMessageDialogOpen] =
@@ -35,7 +37,7 @@ const Intro = () => {
                     component="h1"
                     sx={{ fontSize: "2.5rem", fontWeight: 600, marginTop: 5 }}
                   >
-                    Dream big !!{" "}
+                    {introData.dreamBig}{" "}
                     <span className={styles.higlightedText}>and worry not</span>
                   </Typography>
                 </Grid>
@@ -45,7 +47,7 @@ const Intro = () => {
                     component="h1"
                     sx={{ fontSize: 24, fontWeight: 550 }}
                   >
-                    We are here to assist you to root your dreams into reality
+                   {introData.weAreHereToAssist}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -58,11 +60,9 @@ const Intro = () => {
                       className={styles.higlightedText}
                       style={{ textTransform: "uppercase" }}
                     >
-                      WeRoot Building Solutions
+                      {layoutData.companyName}
                     </span>{" "}
-                    is evolved to provide building solutions with optimized and
-                    innovative state of art designs utilizing specialized
-                    expertise from our experienced engineers.
+                    {introData.evolvedToProviderBuildingSolutions}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -71,9 +71,7 @@ const Intro = () => {
                     component="p"
                     sx={{ marginTop: 1, fontSize: 20 }}
                   >
-                    Our businesses is characterized by professionalism and high
-                    standards with utmost focus on delivering high quality
-                    services to our clients.
+                    {introData.ourBuisnessIsCharacterizedByProfessionals}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>

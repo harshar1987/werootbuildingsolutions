@@ -49,6 +49,10 @@ div .headerLogo:hover {
   margin-top: 2.8rem;
 }
 
+div .headerCompanyContainer:hover {
+  cursor: pointer;
+}
+
 .footerContainer {
   background: rgba(34, 60, 0, 1);
   padding: 1rem;
@@ -104,6 +108,18 @@ div .footerSocialIconsContainer:hover {
   margin-bottom: 5px;
 }
 
+a .footerSectionHeader:hover {
+  color: rgb(142,127,0) !important;
+} 
+
+.footerContactUs {
+  text-decoration: underline !important;
+}
+
+a .footerContactUs:hover {
+  color: rgb(142,127,0) !important;
+} 
+
 @media only screen and (max-width: 600px) {
   .footerSectionGroupContainer {
     justify-content: start;
@@ -126,10 +142,11 @@ div .footerSocialIconsContainer:hover {
 
 .topNavigationText {
   font-size: 0.9rem !important;
+  text-decoration: underline !important;
 }
 
 a .topNavigationText:hover {
- color: rgba(0, 96, 20, 1) !important;
+ color: rgb(142,127,0) !important;
 }
 
 .topNavigationContentDivider {

@@ -10,7 +10,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
 import styles from "./layout.module.css";
-import Logo from "./logo";
+import Logo from "./Logo";
+import { layoutData, layoutContent, layoutRoutes, layoutSocialIcons } from "./Layout.data";
 
 function Header() {
   const router = useRouter();
@@ -20,9 +21,11 @@ function Header() {
       <Grid item xs={12} sx={{ paddingTop: "2px !important" }}>
         <Box className={styles.topNavigation}>
           <Box className={styles.topNavigationContentBox}>
-            <Typography className={styles.topNavigationText}>
-              + 91 8884 8282 11
-            </Typography>
+            <a href={`tel: ${layoutData.phoneNumber}`}>
+              <Typography className={styles.topNavigationText}>
+                {layoutData.phoneNumber}
+              </Typography>
+            </a>
           </Box>
           <Divider
             orientation="vertical"
@@ -30,13 +33,10 @@ function Header() {
             flexItem
           />
           <Box className={styles.topNavigationContentBox}>
-            <Link href="/about">
+            <Link href={layoutRoutes.about}>
               <a>
-                <Typography
-                  className={styles.topNavigationText}
-                  sx={{ textDecoration: "underline" }}
-                >
-                  About us
+                <Typography className={styles.topNavigationText}>
+                  {layoutContent.aboutUs}
                 </Typography>
               </a>
             </Link>
@@ -47,13 +47,10 @@ function Header() {
             flexItem
           />
           <Box className={styles.topNavigationContentBox}>
-            <Link href="/about">
+            <Link href={layoutRoutes.contact}>
               <a>
-                <Typography
-                  className={styles.topNavigationText}
-                  sx={{ textDecoration: "underline" }}
-                >
-                  Contact us
+                <Typography className={styles.topNavigationText}>
+                  {layoutContent.contactUs}
                 </Typography>
               </a>
             </Link>
@@ -61,19 +58,19 @@ function Header() {
         </Box>
       </Grid>
       <Grid item xs={12} sx={{ paddingTop: "8px !important" }}>
-        <Box className={classNames(styles.flex, styles.headerContainer)}>
-          <Box className={styles.headerLogo}>
+        <Box className={classNames(styles.flex, styles.headerContainer)} >
+          <Box className={styles.headerLogo} onClick={e => router.push("/")}>
             <Logo style={{ fill: "rgb(82,33,39)" }} />
           </Box>
-          <Box className={styles.headerCompanyContainer}>
-          <Box className={styles.flex}>
-            <Typography className={styles.headerCompanyName}>
-              WeRoot Building Solutions
-            </Typography>
+          <Box className={styles.headerCompanyContainer} onClick={e => router.push("/")}>
+            <Box className={styles.flex}>
+              <Typography className={styles.headerCompanyName}>
+                {layoutData.companyName}
+              </Typography>
             </Box>
             <Box className={styles.flex}>
               <Typography className={styles.headerCompanySlogan}>
-                Rooting your dreams...
+                {layoutData.companySlogan}
               </Typography>
             </Box>
           </Box>
@@ -94,20 +91,20 @@ function Footer() {
       >
         <Box className={styles.footerSocialIconsContainer}>
           <a
-            href="https://www.facebook.com/WeRoot-Building-Solutions-101112895676552"
+            href={layoutSocialIcons.faceBook}
             target="_"
           >
             <FacebookIcon className={styles.footerSocialIcons} />
           </a>
         </Box>
         <Box className={styles.footerSocialIconsContainer}>
-          <a href="https://www.instagram.com/" target="_">
+          <a href={layoutSocialIcons.instagram} target="_">
             <InstagramIcon className={styles.footerSocialIcons} />
           </a>
         </Box>
         <Box className={styles.footerSocialIconsContainer}>
           <a
-            href="https://www.youtube.com/channel/UCBTLOcST1BlVmW4ts31OBcA"
+            href={layoutSocialIcons.youtube}
             target="_"
           >
             <YouTubeIcon className={styles.footerSocialIcons} />
@@ -123,13 +120,13 @@ function Footer() {
           <Box
             className={classNames(styles.flex, styles.footerSectionContainer)}
           >
-            <Link href="/about">
+            <Link href={layoutRoutes.about}>
               <a>
                 <Typography
                   className={styles.footerSectionHeader}
                   sx={{ textDecoration: "underline" }}
                 >
-                  About Us
+                  {layoutContent.aboutUs}
                 </Typography>
               </a>
             </Link>
@@ -140,32 +137,41 @@ function Footer() {
           <Box
             className={classNames(styles.flex, styles.footerSectionContainer)}
           >
-            <Link href="/contact">
+            <Link href={layoutRoutes.contact}>
               <a>
                 <Typography
                   className={styles.footerSectionHeader}
                   sx={{ textDecoration: "underline" }}
                 >
-                  Contact Us
+                  {layoutContent.contactUs}
                 </Typography>
               </a>
             </Link>
 
-            <Typography>
-              <a href="mailto:werootsolutions@gmail.com">
+            <a href={`mailto:${layoutData.email}`}>
+              <Typography>
                 Email:{" "}
-                <span style={{ textDecoration: "underline" }}>
-                  werootsolutions@gmail.com
+                <span className={styles.footerContactUs}>
+                  {layoutData.email}
                 </span>
-              </a>
-            </Typography>
-            <Typography>Phone: +91 8884 8282 11</Typography>
+              </Typography>
+            </a>
+
+            <a href={`tel: ${layoutData.phoneNumber}`}>
+              <Typography>
+                Phone:{" "}
+                <span className={styles.footerContactUs}>
+                  {" "}
+                  {layoutData.phoneNumber}{" "}
+                </span>
+              </Typography>
+            </a>
           </Box>
         </Grid>
       </Grid>
 
       <Box className={classNames(styles.footerSectionCopyrights)}>
-        <Typography>© 2021 WeRoot Building Solutions.</Typography>
+        <Typography>© 2021 {layoutData.companyName}.</Typography>
       </Box>
     </Box>
   );
@@ -175,7 +181,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Head>
-        <title>WeRoot Building Solutions</title>
+        <title>{layoutData.companyName}</title>
       </Head>
       <Header />
       {children}
