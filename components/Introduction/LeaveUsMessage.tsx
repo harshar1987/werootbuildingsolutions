@@ -12,7 +12,7 @@ import { makeStyles } from "@mui/styles";
 import { useSnackbar, VariantType } from "notistack";
 import React, { useState } from "react";
 import { notifications, validationErrors } from "./LeaveUsMessage.data";
-import styles from "./Leaveusmessage.module.css";
+import styles from "./LeaveUsmessage.module.css";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuDialogContent-root": {
