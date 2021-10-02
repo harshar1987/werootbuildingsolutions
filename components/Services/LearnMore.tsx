@@ -6,7 +6,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
-import styles from "./learnmore.module.css";
+import styles from "./Learnmore.module.css";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuDialogContent-root": {
