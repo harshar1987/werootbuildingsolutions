@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import styles from "./services.module.css";
+import styles from "./Services.module.css";
 
 export const AdvisoryServicesContent = () => {
     return (

@@ -1,32 +1,22 @@
-import type { NextPage } from "next";
-import React from "react";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import Intro from "components/Introduction/Introduction";
 import Services from "components/Services/Services";
-import Divider from "@mui/material/Divider";
-import Box from "@mui/material/Box";
+import type { NextPage } from "next";
+import React from "react";
 import styles from "./index.module.css";
-import { SnackbarProvider } from "notistack";
-import { createTheme, styled, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "rgba(0, 104, 20, 1)",
-    },
-  },
-});
+
 
 const Home: NextPage = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <SnackbarProvider maxSnack={3}>
-        <Intro />
-        <Box className={styles.sectionDivider}>
-          <Divider variant="middle" />
-        </Box>
-        <Services />
-      </SnackbarProvider>
-    </ThemeProvider>
+    <>
+      <Intro />
+      <Box className={styles.sectionDivider}>
+        <Divider variant="middle" />
+      </Box>
+      <Services />
+    </>
   );
 };
 

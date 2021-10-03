@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import React from "react";
-import styles from "./services.module.css";
+import styles from "./Services.module.css";
 
 export const MiscellaneousServicesContent = () => {
   return (

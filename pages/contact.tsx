@@ -5,16 +5,19 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import classNames from "classnames";
-import { VariantType } from "notistack";
 import React, { useState } from "react";
-import { validationErrors } from "../data/contact.data";
+import { notifications, validationErrors } from "../data/contact.data";
 import styles from "./contact.module.css";
+import { useSnackbar, VariantType } from "notistack";
+
+type ErrorState = {
+  error: boolean;
+  helperText?: string;
+};
 
 function Contact() {
-  type ErrorState = {
-    error: boolean;
-    helperText?: string;
-  };
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const [nameError, setNameError] = useState<ErrorState>({
     error: false,
@@ -69,7 +72,7 @@ function Contact() {
       message.trim().length > 0
     ) {
       const variant: VariantType = "success";
-      // enqueueSnackbar(notifications.success, { variant });
+      enqueueSnackbar(notifications.success, { variant });
     }
   };
 
