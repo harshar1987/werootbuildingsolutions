@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import { ContactForm } from "components/Shared/ContactForm";
 import React from "react";
-import styles from "./LeaveUsmessage.module.css";
+import styles from "./LeaveUsMessage.module.css";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuDialogContent-root": {
@@ -87,15 +87,6 @@ export default function LeaveUsMessageDialog({
       <DialogContent>
         <ContactForm onSubmit={handleSubmit} />
       </DialogContent>
-      {/* <DialogActions sx={{ paddingRight: 3 }}>
-        <Button
-          variant="outlined"
-          className={styles.submitButton}
-          onClick={handleSubmit}
-        >
-          Submit
-        </Button>
-      </DialogActions> */}
     </StyledDialog>
   );
 }
