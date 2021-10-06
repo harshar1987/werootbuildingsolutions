@@ -5,14 +5,16 @@
 .contactUsSectionContainer {
   margin: 1rem !important;
   justify-content: center;
+  flex-flow: column;
+}
+
+.contactUsSectionTextContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .contactUsSectionText {
   font-size: 2rem !important;
-  border-width: 0;
-  border-style: solid;
-  border-color: rgba(0, 104, 20, 1);
-  border-bottom-width: 0.2rem;
 }
 
 .contactUsFormContainer {
@@ -31,18 +33,45 @@
   }
 }
 
-.submitButtonContainer {
-  margin-top: 16px;
-  justify-content: flex-end;
+.contactForm {
+  max-width: 60%;
 }
 
-.submitButton {
-  border-color: rgba(0, 104, 20, 1) !important;
-  color: rgba(0, 104, 20, 1) !important;
-  text-transform: capitalize !important;
+@media only screen and (max-width: 600px) {
+  .contactForm {
+    max-width: 100% !important;
+  }
 }
 
-div .submitButton:hover {
-  background: rgba(0, 96, 20, 1) !important;
-  color: #fff !important;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .contactForm {
+    max-width: 100% !important;
+  }
+}
+
+
+.addresses {
+  flex-flow: column;
+}
+
+.addressContainer {
+  margin: 1rem;
+}
+
+.address {
+  margin-left: 1rem !important;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem !important;
+}
+
+.addressInfoIcon {
+  border-radius: 50%;
+  background: rgba(34, 60, 0, 1);
+  margin: 1rem 1rem 0rem 1rem !important;
+  padding: 0.75rem !important;
+  font-size: 3rem !important;
+  color: #fff;
 }

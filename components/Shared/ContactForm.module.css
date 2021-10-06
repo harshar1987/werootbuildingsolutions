@@ -1,0 +1,18 @@
+.flex {
+  display: flex;
+}
+.submitButtonContainer {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.submitButton {
+  border-color: rgba(0, 104, 20, 1) !important;
+  color: rgba(0, 104, 20, 1) !important;
+  text-transform: capitalize !important;
+}
+
+div .submitButton:hover {
+  background: rgba(0, 96, 20, 1) !important;
+  color: #fff !important;
+}

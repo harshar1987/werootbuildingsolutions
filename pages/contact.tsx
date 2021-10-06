@@ -1,196 +1,109 @@
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import TextField from "@mui/material/TextField";
 import classNames from "classnames";
-import React, { useState } from "react";
-import { notifications, validationErrors } from "../data/contact.data";
+import { layoutData } from "components/Layout/Layout.data";
+import { ContactForm } from "components/Shared/ContactForm";
+import React from "react";
 import styles from "./contact.module.css";
-import { useSnackbar, VariantType } from "notistack";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
 
-type ErrorState = {
-  error: boolean;
-  helperText?: string;
+const contactData = {
+  contactUs: "Contact Us",
+  sendUsEnquiry: "Please send us your enquiry using the form below.",
+  address1: "No. 258, 2nd Floor",
+  address2: "7th main, BCC Layout",
+  address3: "Bengaluru – 560040",
 };
 
 function Contact() {
-
-  const { enqueueSnackbar } = useSnackbar();
-
-  const [nameError, setNameError] = useState<ErrorState>({
-    error: false,
-    helperText: "",
-  });
-  const [emailError, setEmailError] = useState<ErrorState>({
-    error: false,
-    helperText: "",
-  });
-  const [messageError, setMessageError] = useState<ErrorState>({
-    error: false,
-    helperText: "",
-  });
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleReset = () => {
-    setName("");
-    setEmail("");
-    setPhoneNumber("");
-    setMessage("");
-    setNameError({ error: false, helperText: "" });
-    setEmailError({ error: false, helperText: "" });
-    setMessageError({ error: false, helperText: "" });
-  };
-
-  const handleSubmit = () => {
-    if (name === "") {
-      setNameError({ error: true, helperText: validationErrors.name });
-    }
-
-    if (email === "") {
-      setEmailError({
-        error: true,
-        helperText: validationErrors.email,
-      });
-    }
-
-    if (message === "") {
-      setMessageError({
-        error: true,
-        helperText: validationErrors.message,
-      });
-    }
-
-    if (
-      name?.trim().length > 0 &&
-      email?.trim().length > 0 &&
-      message.trim().length > 0
-    ) {
-      const variant: VariantType = "success";
-      enqueueSnackbar(notifications.success, { variant });
-    }
-  };
-
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Box
-          className={classNames(styles.flex, styles.contactUsSectionContainer)}
-        >
+    <>
+      <Box
+        className={classNames(styles.flex, styles.contactUsSectionContainer)}
+      >
+        <Box className={styles.contactUsSectionTextContainer}>
           <Typography className={styles.contactUsSectionText}>
-            Contact Us
+            {contactData.contactUs}
           </Typography>
         </Box>
-      </Grid>
-      <Grid item>
-        <Box className={styles.contactUsFormContainer}>
-          <Paper elevation={3} sx={{ padding: "1rem" }}>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Name"
-              type="text"
-              value={name}
-              helperText={nameError.helperText}
-              fullWidth
-              required
-              error={nameError.error}
-              variant="standard"
-              onChange={(e) => {
-                e.target.value.trim().length > 0
-                  ? setNameError({ error: false, helperText: "" })
-                  : setNameError({
-                      error: true,
-                      helperText: validationErrors.name,
-                    });
+      </Box>
 
-                setName(e.target.value);
-              }}
-            />
-            <TextField
-              margin="dense"
-              id="email"
-              label="Email"
-              type="email"
-              value={email}
-              helperText={emailError.helperText}
-              fullWidth
-              required
-              error={emailError.error}
-              variant="standard"
-              onChange={(e) => {
-                e.target.value.trim().length > 0
-                  ? setEmailError({ error: false, helperText: "" })
-                  : setEmailError({
-                      error: true,
-                      helperText: validationErrors.email,
-                    });
-                setEmail(e.target.value);
-              }}
-            />
-            <TextField
-              margin="dense"
-              id="phoneNumber"
-              label="Phone Number"
-              type="number"
-              value={phoneNumber}
-              fullWidth
-              variant="standard"
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <TextField
-              margin="dense"
-              id="message"
-              label="Message"
-              value={message}
-              helperText={messageError.helperText}
-              type="text"
-              fullWidth
-              required
-              error={messageError.error}
-              multiline
-              rows={10}
-              variant="outlined"
-              onChange={(e) => {
-                e.target.value.trim().length > 0
-                  ? setMessageError({ error: false, helperText: "" })
-                  : setMessageError({
-                      error: true,
-                      helperText: validationErrors.message,
-                    });
-
-                setMessage(e.target.value);
-              }}
-            />
-            <Box
-              className={classNames(styles.flex, styles.submitButtonContainer)}
-            >
-              <Button
-                variant="outlined"
-                className={styles.submitButton}
-                onClick={handleReset}
-                sx={{ marginRight: "1rem" }}
-              >
-                Reset
-              </Button>
-              <Button
-                variant="outlined"
-                className={styles.submitButton}
-                onClick={handleSubmit}
-              >
-                Submit
-              </Button>
+      <Box className={styles.contactUsFormContainer}>
+        <Grid container spacing={3} sx={{display: "flex"}}>
+          <Grid item className={styles.contactForm}>
+            <Box sx={{ marginBottom: "1rem" }}>
+              <Typography>{contactData.sendUsEnquiry}</Typography>
             </Box>
-          </Paper>
-        </Box>
-      </Grid>
-    </Grid>
+            <Paper elevation={3} sx={{ padding: "1rem" }}>
+              <ContactForm />
+            </Paper>
+          </Grid>
+          <Grid item>
+            <Box className={classNames(styles.flex, styles.addresses)}>
+              <Box className={classNames(styles.flex, styles.addressContainer)}>
+                <Box className={styles.flex}>
+                  <LocationOnIcon className={styles.addressInfoIcon} />
+                </Box>
+                <Box className={styles.address}>
+                  <Box>
+                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                      Address
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography>{contactData.address1}</Typography>
+                    <Typography>{contactData.address2}</Typography>
+                    <Typography>{contactData.address3}</Typography>
+                  </Box>
+                </Box>
+              </Box>
+              <Box className={classNames(styles.flex, styles.addressContainer)}>
+                <Box className={styles.flex}>
+                  <PhoneIcon className={styles.addressInfoIcon} />
+                </Box>
+                <Box className={styles.address}>
+                  <Box>
+                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                      Phone
+                    </Typography>
+                  </Box>
+                  <Box>
+                  <a href={`tel:${layoutData.phoneNumber}`}>
+                        <Typography sx={{ textDecoration: "underline" }}>
+                          {layoutData.phoneNumber}
+                        </Typography>
+                      </a>
+                  </Box>
+                </Box>
+              </Box>
+              <Box className={classNames(styles.flex, styles.addressContainer)}>
+                <Box className={styles.flex}>
+                  <EmailIcon className={styles.addressInfoIcon} />
+                </Box>
+                <Box>
+                  <Box className={styles.address}>
+                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                      Email
+                    </Typography>
+                    <Box>
+                      <a href={`mailto:${layoutData.email}`}>
+                        <Typography sx={{ textDecoration: "underline" }}>
+                          {layoutData.email}
+                        </Typography>
+                      </a>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+    </>
   );
 }
 
