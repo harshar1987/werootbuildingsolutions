@@ -50,7 +50,7 @@ function Contact() {
                 </Box>
                 <Box className={styles.address}>
                   <Box>
-                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                    <Typography  sx={{ fontSize: "1.5rem" }}>
                       Address
                     </Typography>
                   </Box>
@@ -67,7 +67,7 @@ function Contact() {
                 </Box>
                 <Box className={styles.address}>
                   <Box>
-                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                    <Typography sx={{ fontSize: "1.5rem" }}>
                       Phone
                     </Typography>
                   </Box>
@@ -86,7 +86,7 @@ function Contact() {
                 </Box>
                 <Box>
                   <Box className={styles.address}>
-                    <Typography component="h1" sx={{ fontSize: "1.5rem" }}>
+                    <Typography sx={{ fontSize: "1.5rem" }}>
                       Email
                     </Typography>
                     <Box>

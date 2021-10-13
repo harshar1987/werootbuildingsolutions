@@ -1,0 +1,42 @@
+.flex {
+  display: flex;
+}
+
+
+.aboutContainer {
+    margin: 2rem;
+}
+
+.headerTextContainer {
+    justify-content: center;
+    flex-flow: column;
+}
+
+.headerText {
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 104, 20, 1);
+  border-bottom-width: 0.2rem;
+
+}
+
+.contentText {
+    text-align: center !important;
+    margin: 1rem !important;
+    font-size: 20px !important;
+}
+
+.higlightedText {
+  color: rgba(0, 104, 20, 1);
+  font-weight: 600 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .imageContainer {
+    display: none;
+  }
+}
+
+

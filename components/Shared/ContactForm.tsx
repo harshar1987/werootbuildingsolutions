@@ -178,7 +178,7 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
             className={styles.flex}
             sx={{ margin: "1rem 1rem 1rem 0rem", justifyContent: "center" }}
           >
-            <Typography component="h1">I want to:</Typography>
+            <Typography>I want to:</Typography>
           </Box>
           <RadioGroup
             row

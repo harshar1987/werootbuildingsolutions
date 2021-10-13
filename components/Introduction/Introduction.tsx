@@ -38,7 +38,7 @@ const Intro = () => {
                     sx={{ fontSize: "2.5rem", fontWeight: 600, marginTop: 5 }}
                   >
                     {introData.dreamBig}{" "}
-                    <span className={styles.higlightedText}>and worry not</span>
+                    <span className={styles.higlightedText}>{introData.worryNot}</span>
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -69,7 +69,7 @@ const Intro = () => {
                   <Typography
                     className={styles.introContentText}
                     component="p"
-                    sx={{ marginTop: 1, fontSize: 20 }}
+                    sx={{ fontSize: 20 }}
                   >
                     {introData.ourBuisnessIsCharacterizedByProfessionals}
                   </Typography>
