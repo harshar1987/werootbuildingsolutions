@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
 import { Typography } from "@mui/material";
-import { useSnackbar, VariantType } from "notistack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import styles from "./ContactForm.module.css";
-import classNames from "classnames";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import TextField from "@mui/material/TextField";
+import classNames from "classnames";
+import { useSnackbar, VariantType } from "notistack";
+import React, { useState } from "react";
+import styles from "./ContactForm.module.css";
+import { send } from "emailjs-com";
 
 const validationErrors = {
   name: "Please provide your name",
@@ -67,16 +67,6 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
   const [description, setDescription] = useState("");
   const [buildingType, setBuildingType] = useState("new");
 
-  const handleReset = () => {
-    setName("");
-    setEmail("");
-    setPhoneNumber("");
-    setDescription("");
-    setNameError({ error: false, helperText: "" });
-    setEmailError({ error: false, helperText: "" });
-    setDescriptionError({ error: false, helperText: "" });
-  };
-
   const handleSubmit = () => {
     if (name === "") {
       setNameError({ error: true, helperText: validationErrors.name });
@@ -113,7 +103,26 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
       if (onSubmit) {
         onSubmit(userEnquiry);
       }
+
+      sendEmail();
     }
+  };
+
+  const sendEmail = () => {
+    send("service_1pjsmsp", "template_2am1816", {
+      from_name: name,
+      buildingType: buildingType,
+      from_email: email,
+      from_phone: phoneNumber,
+      message: description,
+      reply_to: email,
+    },"user_PRh6yby9MFb6jGIwn9To8")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
   };
 
   return (

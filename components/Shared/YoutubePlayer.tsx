@@ -1,4 +1,3 @@
-import { width } from "@mui/system";
 import React from "react";
 import YouTube, { Options } from "react-youtube";
 import styles from "./YoutubePlayer.module.css";
