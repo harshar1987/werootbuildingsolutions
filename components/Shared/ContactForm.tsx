@@ -231,14 +231,6 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
         }}
       />
       <Box className={classNames(styles.flex, styles.submitButtonContainer)}>
-        {/* <Button
-          variant="outlined"
-          className={styles.submitButton}
-          onClick={handleReset}
-          sx={{ marginRight: "1rem" }}
-        >
-          Reset
-        </Button> */}
         <Button
           variant="outlined"
           className={styles.submitButton}

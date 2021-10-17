@@ -65,12 +65,12 @@ function Header() {
           <Box className={styles.headerCompanyContainer} onClick={e => router.push("/")}>
             <Box className={styles.flex}>
               <Typography className={styles.headerCompanyName}>
-                {layoutData.companyName}
+                {layoutData.companyName1}
               </Typography>
             </Box>
             <Box className={styles.flex}>
               <Typography className={styles.headerCompanySlogan}>
-                {layoutData.companySlogan}
+                {layoutData.companyName2}
               </Typography>
             </Box>
           </Box>
@@ -171,7 +171,7 @@ function Footer() {
       </Grid>
 
       <Box className={classNames(styles.footerSectionCopyrights)}>
-        <Typography>© 2021 {layoutData.companyName}.</Typography>
+        <Typography>© 2021 {layoutData.companyName1}{" "}{layoutData.companyName2}.</Typography>
       </Box>
     </Box>
   );
@@ -181,7 +181,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Head>
-        <title>{layoutData.companyName}</title>
+        <title>{layoutData.companyName1}</title>
       </Head>
       <Header />
       {children}

@@ -8,8 +8,10 @@ import home from "public/home.png";
 import { introData } from "./Introduction.data";
 import styles from "./Introduction.module.css";
 import LeaveUsMessageDialog from "./LeaveUsMessage";
+import { useRouter } from "next/router";
 
 const Intro = () => {
+  const router = useRouter();
   const [leaveUsMessageDialogOpen, setLeaveUsMessageDialogOpen] =
     useState(false);
 
@@ -38,7 +40,9 @@ const Intro = () => {
                     sx={{ fontSize: "2.5rem", fontWeight: 600, marginTop: 5 }}
                   >
                     {introData.dreamBig}{" "}
-                    <span className={styles.higlightedText}>{introData.worryNot}</span>
+                    <span className={styles.higlightedText}>
+                      {introData.worryNot}
+                    </span>
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -47,7 +51,7 @@ const Intro = () => {
                     component="h1"
                     sx={{ fontSize: 24, fontWeight: 550 }}
                   >
-                   {introData.weAreHereToAssist}
+                    {introData.weAreHereToAssist}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -60,7 +64,7 @@ const Intro = () => {
                       className={styles.higlightedText}
                       style={{ textTransform: "uppercase" }}
                     >
-                      {layoutData.companyName}
+                      {layoutData.companyName1}
                     </span>{" "}
                     {introData.evolvedToProviderBuildingSolutions}
                   </Typography>
@@ -75,15 +79,27 @@ const Intro = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Grid container spacing={0} sx={{ justifyContent: "center" }}>
+                  <Grid container spacing={2} sx={{ justifyContent: "center" }}>
                     <Grid item>
-                      <Button
-                        variant="outlined"
-                        className={styles.primaryButton}
-                        onClick={handleLeaveUsMessageDialogOpen}
-                      >
-                        Leave us a message
-                      </Button>
+                      <Box className={styles.flex} sx={{ flexFlow: "column" }}>
+                        <Button
+                          variant="outlined"
+                          className={styles.primaryButton}
+                          onClick={handleLeaveUsMessageDialogOpen}
+                        >
+                          Leave us a message
+                        </Button>
+                        <Button
+                          size={"small"}
+                          sx={{
+                            marginTop: "0.75rem",
+                            textDecoration: "underline",
+                          }}
+                          onClick={(e) => router.push("/about")}
+                        >
+                          More about us
+                        </Button>
+                      </Box>
                     </Grid>
                   </Grid>
                 </Grid>

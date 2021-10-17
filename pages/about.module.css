@@ -40,3 +40,56 @@
 }
 
 
+.meetTheTeamHeader {
+  justify-content: center;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .meetTheTeamHeader {
+    margin: 0;
+  }
+}
+
+.avatarImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.avatarName {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important; 
+  text-align: center;
+}
+
+.avatarTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem !important;
+  color: rgba(0, 104, 20, 1);
+  font-weight: bold;
+  text-align: center;
+}
+
+.avatarDescription {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0.25rem !important;
+}
+
+.avatarGridContainer {
+  justify-content: center;
+}
+
+.avatarGridItem {
+  margin: 2rem !important;
+}
+
+.image {
+  height: auto;
+  max-width: 100%;
+}

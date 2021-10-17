@@ -1,0 +1,25 @@
+
+
+  .youtubeContainer {
+    width: 600px;
+    height: 400px;
+  }
+  
+  .youtubeContainer iframe {
+    width: 600px;
+    height: 400px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .youtubeContainer {
+
+        width: 100% !important;
+        height: 100% !important;
+      }
+      
+      .youtubeContainer iframe {
+        width: 100% !important;
+        height: 100% !important;
+    
+      }
+  }

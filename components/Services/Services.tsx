@@ -1,79 +1,103 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import classNames from "classnames";
 import React, { useState } from "react";
-import { AdvisoryServicesContent } from "./AdvisoryServicesContent";
-import { DesignAndEngineeringServicesContent } from "./DesignAndEngineeringServicesContent";
 import {
-  Advisory,
-  DesignAndEngineering,
-  Miscellaneous,
-  ProjectExecutionAndMonitoring,
-} from "./Images";
-import LearnMoreDialog from "./LearnMore";
-import { MiscellaneousServicesContent } from "./MiscellaneousServicesContent";
-import { ProjectExecutionAndMonitoringServicesContent } from "./ProjectExecutionAndMonitoringServicesContent";
-import styles from "./Services.module.css";
+  AdvisoryServicesContent,
+  AdvisoryServicesImage,
+} from "./Advisory/AdvisoryServicesContent";
 import {
-  servicesData,
+  DesignAndEngineeringServicesContent,
+  DesignAndEngineeringServicesContentImage,
+} from "./DesignAndEngineering/DesignAndEngineeringServicesContent";
+import LearnMoreDialog from "./Shared/LearnMore";
+import {
+  MiscellaneousServicesContent,
+  MiscellaneousServicesContentImage,
+} from "./Miscellaneous/MiscellaneousServicesContent";
+import { ProjectExecutionAndMonitoringServicesContent } from "./ProjectExecution/ProjectExecutionAndMonitoringServicesContent";
+import {
   advisoryServicesInfo,
   designAndEngineeringInfo,
-  projectExecutionInfo,
   miscellaneousInfo,
+  projectExecutionInfo,
+  servicesData,
 } from "./Services.data";
+import styles from "./Services.module.css";
 
 const EmptyLearnMoreContent = <div></div>;
 
 function Services() {
   type LearnMoreDetail = {
-    open: boolean;
+    openAdvisoryServices: boolean;
+    openDesignAndEngineeringServices: boolean;
+    openProjectExecutionServices: boolean;
+    openMiscellaneousServices: boolean;
     title: string;
-    content: React.ReactNode;
   };
 
-  const [learnMoreDetail, setLearnMoreDetails] = useState<LearnMoreDetail>({
-    open: false,
+  const initialState = {
+    openAdvisoryServices: false,
+    openDesignAndEngineeringServices: false,
+    openProjectExecutionServices: false,
+    openMiscellaneousServices: false,
     title: "",
-    content: EmptyLearnMoreContent,
-  });
+  };
+
+  const [learnMoreDetail, setLearnMoreDetails] =
+    useState<LearnMoreDetail>(initialState);
 
   const handleLearnMoreClose = () => {
-    setLearnMoreDetails({
-      open: false,
-      title: "",
-      content: EmptyLearnMoreContent,
-    });
-  };
-
-  const handleLearnMoreOpen = (title: string, content: React.ReactNode) => {
-    setLearnMoreDetails({ open: true, title: title, content: content });
+    setLearnMoreDetails(initialState);
   };
 
   const learnMoreOnAdvisoryServices = () => {
-    handleLearnMoreOpen(servicesData.advisory, AdvisoryServicesContent());
+    setLearnMoreDetails({
+      openAdvisoryServices: true,
+      openDesignAndEngineeringServices: false,
+      openProjectExecutionServices: false,
+      openMiscellaneousServices: false,
+      title: servicesData.advisory,
+    });
   };
 
   const learnMoreOnDesignAndEngineeringServices = () => {
-    handleLearnMoreOpen(
-      servicesData.designAndEngineering,
-      DesignAndEngineeringServicesContent()
-    );
+    setLearnMoreDetails({
+      openAdvisoryServices: false,
+      openDesignAndEngineeringServices: true,
+      openProjectExecutionServices: false,
+      openMiscellaneousServices: false,
+      title: servicesData.designAndEngineering,
+    });
   };
 
   const learnMoreOnProjectExecutionAndMonitoringServices = () => {
-    handleLearnMoreOpen(
-      servicesData.projectExecution,
-      ProjectExecutionAndMonitoringServicesContent()
-    );
+    setLearnMoreDetails({
+      openAdvisoryServices: false,
+      openDesignAndEngineeringServices: false,
+      openProjectExecutionServices: true,
+      openMiscellaneousServices: false,
+      title: servicesData.projectExecution,
+    });
   };
 
   const learnMoreOnMiscellaneousServices = () => {
-    handleLearnMoreOpen(
-      servicesData.miscellaneous,
-      MiscellaneousServicesContent()
-    );
+    setLearnMoreDetails({
+      openAdvisoryServices: false,
+      openDesignAndEngineeringServices: false,
+      openProjectExecutionServices: false,
+      openMiscellaneousServices: true,
+      title: servicesData.miscellaneous,
+    });
   };
 
-  const { open, title, content } = learnMoreDetail;
+  const {
+    openAdvisoryServices,
+    openDesignAndEngineeringServices,
+    openProjectExecutionServices,
+    openMiscellaneousServices,
+    title,
+  } = learnMoreDetail;
+
   return (
     <>
       <Grid container>
@@ -96,7 +120,7 @@ function Services() {
           >
             <Box className={styles.ourServicesSectionContentContainer}>
               <div className={styles.ourServicesSectionContentImage}>
-                <Advisory style={{ width: "5rem" }} />
+                <AdvisoryServicesImage style={{ width: "5rem" }} />
               </div>
               <Typography
                 className={classNames(
@@ -128,7 +152,7 @@ function Services() {
                       <Typography
                         className={styles.ourServicesSectionContentText}
                       >
-                       {advisoryServicesInfo.second}
+                        {advisoryServicesInfo.second}
                       </Typography>
                     </Box>
                   </Grid>
@@ -152,7 +176,9 @@ function Services() {
 
             <Box className={styles.ourServicesSectionContentContainer}>
               <div className={styles.ourServicesSectionContentImage}>
-                <DesignAndEngineering style={{ width: "5rem" }} />
+                <DesignAndEngineeringServicesContentImage
+                  style={{ width: "5rem" }}
+                />
               </div>
               <Typography
                 className={classNames(
@@ -160,7 +186,7 @@ function Services() {
                   styles.ourServicesSectionContentHeaderText
                 )}
               >
-               {servicesData.designAndEngineering}
+                {servicesData.designAndEngineering}
               </Typography>
               <Box className={styles.ourServicesSectionContentTextContainer}>
                 <Grid container>
@@ -214,7 +240,9 @@ function Services() {
           >
             <Box className={styles.ourServicesSectionContentContainer}>
               <div className={styles.ourServicesSectionContentImage}>
-                <ProjectExecutionAndMonitoring style={{ width: "5rem" }} />
+                <DesignAndEngineeringServicesContentImage
+                  style={{ width: "5rem" }}
+                />
               </div>
               <Typography
                 className={classNames(
@@ -282,7 +310,7 @@ function Services() {
 
             <Box className={styles.ourServicesSectionContentContainer}>
               <div className={styles.ourServicesSectionContentImage}>
-                <Miscellaneous style={{ width: "5rem" }} />
+                <MiscellaneousServicesContentImage style={{ width: "5rem" }} />
               </div>
               <Typography
                 className={classNames(
@@ -350,12 +378,42 @@ function Services() {
           </Box>
         </Grid>
       </Grid>
-      <LearnMoreDialog
-        open={open}
-        title={title}
-        content={content}
-        handleClose={handleLearnMoreClose}
-      />
+      {openAdvisoryServices && (
+        <LearnMoreDialog
+          open={openAdvisoryServices}
+          title={title}
+          handleClose={handleLearnMoreClose}
+        >
+          <AdvisoryServicesContent />
+        </LearnMoreDialog>
+      )}
+      {openDesignAndEngineeringServices && (
+        <LearnMoreDialog
+          open={openDesignAndEngineeringServices}
+          title={title}
+          handleClose={handleLearnMoreClose}
+        >
+          <DesignAndEngineeringServicesContent />
+        </LearnMoreDialog>
+      )}
+      {openProjectExecutionServices && (
+        <LearnMoreDialog
+          open={openProjectExecutionServices}
+          title={title}
+          handleClose={handleLearnMoreClose}
+        >
+          <ProjectExecutionAndMonitoringServicesContent />
+        </LearnMoreDialog>
+      )}
+      {openMiscellaneousServices && (
+        <LearnMoreDialog
+          open={openMiscellaneousServices}
+          title={title}
+          handleClose={handleLearnMoreClose}
+        >
+          <MiscellaneousServicesContent />
+        </LearnMoreDialog>
+      )}
     </>
   );
 }

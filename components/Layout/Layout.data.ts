@@ -1,5 +1,6 @@
 export const layoutData = {
-    companyName: "WeRoot Building Solutions",
+    companyName1: "WeRoot",
+    companyName2: "Building Solutions",
     companySlogan: "Rooting your dreams...",
     phoneNumber: "+91 8884 8282 11",
     email: "werootsolutions@gmail.com"
