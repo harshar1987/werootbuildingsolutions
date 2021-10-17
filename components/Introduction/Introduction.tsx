@@ -1,7 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Image from "next/image";
 import React, { useState } from "react";
 import { layoutData } from "components/Layout/Layout.data";
 import home from "public/home.png";
@@ -29,7 +28,13 @@ const Intro = () => {
         <Grid item xs={12}>
           <Box className={styles.flex}>
             <Box className={styles.homeImage}>
-              <Image src={home} alt="home" width={4000} height={3000} />
+              <Box
+                component="img"
+                src={home}
+                alt="home"
+                width="100%" 
+                height="auto"
+              ></Box>
             </Box>
             <Box className={styles.homeContent}>
               <Grid container spacing={0} sx={{ margin: "0.5rem" }}>

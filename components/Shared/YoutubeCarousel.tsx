@@ -2,7 +2,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { Box, Button, MobileStepper, Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
-import styles from "./Carousel.module.css";
+import styles from "./YoutubeCarousel.module.css";
 import { ICarouselYoutube } from "./Models/Model";
 import YoutubePlayer from "./YoutubePlayer";
 

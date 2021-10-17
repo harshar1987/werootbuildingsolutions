@@ -1,20 +1,25 @@
-import React from "react";
+import { Avatar, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Image from "next/image";
+import classNames from "classnames";
+import React from "react";
+import Deepak from "../public/deepak.png";
+import Divya from "../public/divya_2.png";
 import Team from "../public/team.jpg";
 import Why from "../public/why.jpg";
-import Deepak from "../public/deepak.png";
-import Divya from "../public/divya_2.png"
-import { Avatar, Grid, Typography } from "@mui/material";
 import styles from "./about.module.css";
-import classNames from "classnames";
 
 function About() {
   return (
     <Box>
       <Box className={classNames(styles.flex, styles.aboutContainer)}>
-        <Box className={styles.imageContainer}>
-          <Image src={Team} alt="team" width={2000} height={1500} priority={true}/>
+        <Box className={styles.imageContainer} width="50%">
+          <Box
+            src={Team}
+            alt="team"
+            component="img"
+            width="100%"
+            height="auto"
+          />
           <a
             style={{ fontSize: "0.25rem" }}
             href="https://www.freepik.com/vectors/people"
@@ -23,7 +28,7 @@ function About() {
             Designed by pch.vector
           </a>
         </Box>
-        <Box className={classNames(styles.flex, styles.headerTextContainer)}>
+        <Box className={classNames(styles.flex, styles.headerTextContainer)} width="50%">
           <Box className={styles.flex} sx={{ flexFlow: "column" }}>
             <Box
               className={styles.flex}
@@ -48,7 +53,7 @@ function About() {
         </Box>
       </Box>
       <Box className={classNames(styles.flex, styles.aboutContainer)}>
-        <Box className={classNames(styles.flex, styles.headerTextContainer)}>
+        <Box className={classNames(styles.flex, styles.headerTextContainer)} width="50%">
           <Box className={styles.flex} sx={{ flexFlow: "column" }}>
             <Box
               className={styles.flex}
@@ -68,8 +73,8 @@ function About() {
             </Typography>
           </Box>
         </Box>
-        <Box className={styles.imageContainer}>
-          <Image src={Why} alt="why" width={1500} height={1500} priority={true} />
+        <Box className={styles.imageContainer} width="50%">
+          <Box src={Why} alt="why" component="img" width="100%" height="auto" />
           <a
             style={{ fontSize: "0.25rem", float: "right" }}
             href="https://www.freepik.com/vectors/question"
@@ -102,12 +107,7 @@ function About() {
                         alt="Deepak"
                         sx={{ width: 250, height: 250, margin: "2rem" }}
                       >
-                        <Image
-                          src={Deepak}
-                          alt="deepak"
-                          width={800}
-                          height={800}
-                        />
+                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
                       </Avatar>
                     </Box>
                     <Typography className={styles.avatarName}>
@@ -136,12 +136,7 @@ function About() {
                         alt="Deepak"
                         sx={{ width: 250, height: 250, margin: "2rem" }}
                       >
-                        <Image
-                          src={Deepak}
-                          alt="deepak"
-                          width={800}
-                          height={800}
-                        />
+                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
                       </Avatar>
                     </Box>
                     <Typography className={styles.avatarName}>
@@ -166,12 +161,7 @@ function About() {
                         alt="Deepak"
                         sx={{ width: 250, height: 250, margin: "2rem" }}
                       >
-                        <Image
-                          src={Deepak}
-                          alt="deepak"
-                          width={800}
-                          height={800}
-                        />
+                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
                       </Avatar>
                     </Box>
                     <Typography className={styles.avatarName}>
@@ -184,8 +174,8 @@ function About() {
                       M.B.A (Marketing)
                     </Typography>
                     <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in marketing and
-                      finance management.
+                      10 years of industry expertise in marketing and finance
+                      management.
                     </Typography>
                   </Box>
                 </Grid>
@@ -196,16 +186,11 @@ function About() {
                         alt="Divya"
                         sx={{ width: 250, height: 250, margin: "2rem" }}
                       >
-                        <Image
-                          src={Divya}
-                          alt="divya"
-                          width={800}
-                          height={800}
-                        />
+                        <Box src={Divya} alt="deepak" component="img" width="100%" height="auto"/>
                       </Avatar>
                     </Box>
                     <Typography className={styles.avatarName}>
-                      Divya Shashidhar 
+                      Divya Shashidhar
                     </Typography>
                     <Typography className={styles.avatarTitle}>
                       Head - Environmental &amp; CSR
@@ -214,8 +199,7 @@ function About() {
                       M.Sc
                     </Typography>
                     <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in evironment and
-                      CSR.
+                      10 years of industry expertise in evironment and CSR.
                     </Typography>
                   </Box>
                 </Grid>

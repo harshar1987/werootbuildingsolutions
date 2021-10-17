@@ -10,6 +10,7 @@
 .homeImage {
   margin: 1rem;
   width: 45%;
+  height: auto;
 }
 
 .homeContent {

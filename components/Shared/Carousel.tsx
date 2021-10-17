@@ -28,31 +28,34 @@ const Carousel = ({ carrouselSteps }: ICarrouselProps) => {
 
   return (
     <Box>
-      <Box >
+      <Box>
         <SwipeableViews
           axis={"x"}
           index={activeStep}
           onChangeIndex={handleStepChange}
           enableMouseEvents
-          slideClassName={styles.slide} 
+          slideClassName={styles.slide}
           autoPlay={false}
-          springConfig={{ duration: "3s", easeFunction: "cubic-bezier(0, 0.75, 1, 1)", delay: "0s"}}
+          springConfig={{
+            duration: "3s",
+            easeFunction: "cubic-bezier(0, 0.75, 1, 1)",
+            delay: "0s",
+          }}
         >
           {carrouselSteps.map((step, index) => (
-            <div key={step.title}>
+            <Box
+              key={step.title}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
               {Math.abs(activeStep - index) <= 2 ? (
                 <Box
                   component="img"
-                  sx={{
-                    height: 400,
-                    width: 600,
-                  }}
                   className={styles.image}
                   src={step.image}
                   alt={step.title}
                 />
               ) : null}
-            </div>
+            </Box>
           ))}
         </SwipeableViews>
       </Box>
