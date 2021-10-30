@@ -1,0 +1,25 @@
+.carouselImage {
+  height: 500px !important;
+  max-width: 80%;
+}
+
+.flex {
+  display: flex;
+}
+
+.videoWalkthroughContainer {
+  justify-content: center;
+  margin: 1rem;
+}
+
+
+.videoWalkthrough {
+    border-color: rgba(0, 96, 20, 1) !important;
+    color: rgba(0, 104, 20, 1) !important;
+  }
+  
+  div .videoWalkthrough:hover {
+    background: rgba(0, 96, 20, 1) !important;
+    color: #fff !important;
+  }
+  

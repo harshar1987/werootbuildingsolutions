@@ -2,14 +2,19 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { Box, Button, MobileStepper, Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
+import { autoPlay } from "react-swipeable-views-utils";
 import styles from "./Carousel.module.css";
 import { ICarouselImage } from "./Models/Model";
 
-interface ICarrouselProps {
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+export interface ICarrouselProps {
   carrouselSteps: ICarouselImage[];
+  autoPlay?: boolean;
+  className?: string;
 }
 
-const Carousel = ({ carrouselSteps }: ICarrouselProps) => {
+const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -25,39 +30,66 @@ const Carousel = ({ carrouselSteps }: ICarrouselProps) => {
   };
 
   const maxSteps = carrouselSteps.length;
+  let canAutoPlay = false;
+  if (autoPlay) {
+    canAutoPlay = true;
+  }
+  const carouselStyle = className ? className: styles.image;
+
+  const renderCarouselSteps = () => {
+    return carrouselSteps.map((step, index) => {
+      return (
+        <Box
+          key={step.title}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          {Math.abs(activeStep - index) <= 2 ? (
+            <Box
+              component="img"
+              className={carouselStyle}
+              src={step.image}
+              alt={step.title}
+            />
+          ) : null}
+        </Box>
+      );
+    });
+  };
 
   return (
     <Box>
       <Box>
-        <SwipeableViews
-          axis={"x"}
-          index={activeStep}
-          onChangeIndex={handleStepChange}
-          enableMouseEvents
-          slideClassName={styles.slide}
-          autoPlay={false}
-          springConfig={{
-            duration: "3s",
-            easeFunction: "cubic-bezier(0, 0.75, 1, 1)",
-            delay: "0s",
-          }}
-        >
-          {carrouselSteps.map((step, index) => (
-            <Box
-              key={step.title}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              {Math.abs(activeStep - index) <= 2 ? (
-                <Box
-                  component="img"
-                  className={styles.image}
-                  src={step.image}
-                  alt={step.title}
-                />
-              ) : null}
-            </Box>
-          ))}
-        </SwipeableViews>
+        {canAutoPlay ? (
+          <AutoPlaySwipeableViews
+            axis={"x"}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            slideClassName={styles.slide}
+            enableMouseEvents
+            springConfig={{
+              duration: "3s",
+              easeFunction: "cubic-bezier(0, 0.75, 1, 1)",
+              delay: "0s",
+            }}
+          >
+            {renderCarouselSteps()}
+          </AutoPlaySwipeableViews>
+        ) : (
+          <SwipeableViews
+            axis={"x"}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+            slideClassName={styles.slide}
+            springConfig={{
+              duration: "3s",
+              easeFunction: "cubic-bezier(0, 0.75, 1, 1)",
+              delay: "0s",
+            }}
+          >
+            {renderCarouselSteps()}
+          </SwipeableViews>
+        )}
       </Box>
       <Paper square elevation={0}>
         <Typography className={styles.title}>

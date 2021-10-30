@@ -42,6 +42,9 @@ div .primaryButton:hover {
 .introContentText {
   text-align: center !important;
   margin: 1rem !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  marginTop: 5px 
 }
 
 @media only screen and (max-width: 600px) {

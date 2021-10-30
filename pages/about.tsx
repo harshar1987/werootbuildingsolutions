@@ -2,11 +2,54 @@ import { Avatar, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import classNames from "classnames";
 import React from "react";
-import Deepak from "../public/deepak.png";
-import Divya from "../public/divya_2.png";
 import Team from "../public/team.jpg";
 import Why from "../public/why.jpg";
 import styles from "./about.module.css";
+
+type Person = {
+  name: string;
+  role: string;
+  education: string;
+  description: string;
+  avatar: string;
+  avatarWidth?: number;
+  avatarHeight?: number;
+};
+
+const ourTeam: Person[] = [
+  {
+    name: "Deepak Bharadwaj G.V",
+    role: "Head - Design and Engineering",
+    education: "B.E(Civil), M.Tech(Structures), MIE, CEng, RV (L&B)",
+    description:
+      "Around 10+ years of handful experience in Design and Engineering having worked on various designs across various sectors like Airports, Commercial buildings, Residential buildings Power plants.",
+      avatar: "deepak.png"
+  },
+  {
+    name: "Venkatesha N",
+    role: "Head – Projects",
+    education: "BE (Civil), M-Tech (Structures)",
+    description:
+      "Around 12+ years of diversified experience in both Design as well as construction with skillsets on High Rise residential buildings, Villas & Commercial buildings.",
+      avatar: "venkatesh.png"
+  },
+  {
+    name: "Shashidhara K M",
+    role: "Head – Marketing",
+    education: "MBA (Marketing)",
+    description:
+      "With over 15+ years of experience in the field of marketing. Pioneered and has achieved various milestones during his entire journey.",
+      avatar: "shashi.png"
+  },
+  {
+    name: "Divya Shashidhara",
+    role: "Head – Environmental & CSR",
+    education: "M-Sc, B-Ed",
+    description:
+      "With overall 13+ years of experience in the field of teaching & social service. Founder of Karnataka Women Power Empowerment & Dhatri Educare.",
+      avatar: "divya.png"
+  }
+];
 
 function About() {
   return (
@@ -28,7 +71,10 @@ function About() {
             Designed by pch.vector
           </a>
         </Box>
-        <Box className={classNames(styles.flex, styles.headerTextContainer)} width="50%">
+        <Box
+          className={classNames(styles.flex, styles.headerTextContainer)}
+          width="50%"
+        >
           <Box className={styles.flex} sx={{ flexFlow: "column" }}>
             <Box
               className={styles.flex}
@@ -53,7 +99,10 @@ function About() {
         </Box>
       </Box>
       <Box className={classNames(styles.flex, styles.aboutContainer)}>
-        <Box className={classNames(styles.flex, styles.headerTextContainer)} width="50%">
+        <Box
+          className={classNames(styles.flex, styles.headerTextContainer)}
+          width="50%"
+        >
           <Box className={styles.flex} sx={{ flexFlow: "column" }}>
             <Box
               className={styles.flex}
@@ -84,128 +133,52 @@ function About() {
           </a>
         </Box>
       </Box>
-      <Box
-        className={classNames(styles.flex, styles.aboutContainer)}
-        sx={{ justifyContent: "center" }}
-      >
+      <Box className={styles.aboutContainer}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Box className={classNames(styles.flex, styles.meetTheTeamHeader)}>
               <Typography className={styles.headerText}>Our team</Typography>
             </Box>
           </Grid>
-          <Grid item xs={12}>
-            <Box>
-              <Grid
-                container
-                className={classNames(styles.flex, styles.avatarGridContainer)}
-              >
-                <Grid item className={styles.avatarGridItem}>
-                  <Box>
-                    <Box className={styles.avatarImageContainer}>
-                      <Avatar
-                        alt="Deepak"
-                        sx={{ width: 250, height: 250, margin: "2rem" }}
-                      >
-                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
-                      </Avatar>
-                    </Box>
-                    <Typography className={styles.avatarName}>
-                      Deepak Bharadwaj G.V
-                    </Typography>
-                    <Typography className={styles.avatarTitle}>
-                      Head - Design and Engineering
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      B.E(Civil), M.Tech(Structures), MIE, CEng, RV (L&amp;B)
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in construction and
-                      structural design.
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      Previously worked at L&amp;T, Sterling &amp; Wilson,
-                      Statkraft.
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item className={styles.avatarGridItem}>
-                  <Box>
-                    <Box className={styles.avatarImageContainer}>
-                      <Avatar
-                        alt="Deepak"
-                        sx={{ width: 250, height: 250, margin: "2rem" }}
-                      >
-                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
-                      </Avatar>
-                    </Box>
-                    <Typography className={styles.avatarName}>
-                      Venkatesha N
-                    </Typography>
-                    <Typography className={styles.avatarTitle}>
-                      Head - Projects
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      B.E(Civil), M-Tech(Structures)
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in construction and
-                      structural design.
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item className={styles.avatarGridItem}>
-                  <Box>
-                    <Box className={styles.avatarImageContainer}>
-                      <Avatar
-                        alt="Deepak"
-                        sx={{ width: 250, height: 250, margin: "2rem" }}
-                      >
-                        <Box src={Deepak} alt="deepak" component="img" width="100%" height="auto"/>
-                      </Avatar>
-                    </Box>
-                    <Typography className={styles.avatarName}>
-                      Shashidhara K M
-                    </Typography>
-                    <Typography className={styles.avatarTitle}>
-                      Head - Marketing &amp; Finance
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      M.B.A (Marketing)
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in marketing and finance
-                      management.
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item className={styles.avatarGridItem}>
-                  <Box>
-                    <Box className={styles.avatarImageContainer}>
-                      <Avatar
-                        alt="Divya"
-                        sx={{ width: 250, height: 250, margin: "2rem" }}
-                      >
-                        <Box src={Divya} alt="deepak" component="img" width="100%" height="auto"/>
-                      </Avatar>
-                    </Box>
-                    <Typography className={styles.avatarName}>
-                      Divya Shashidhar
-                    </Typography>
-                    <Typography className={styles.avatarTitle}>
-                      Head - Environmental &amp; CSR
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      M.Sc
-                    </Typography>
-                    <Typography className={styles.avatarDescription}>
-                      10 years of industry expertise in evironment and CSR.
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
-          </Grid>
+          {ourTeam.map((person) => (
+            <Grid item xs={12} sm={6} key={person.name}>
+              <Box>
+                <Box className={styles.avatarImageContainer}>
+                  <Avatar
+                    alt={person.name}
+                    sx={{ width: person.avatarWidth ?? 250, height: person.avatarHeight ?? 250, margin: "2rem" }}
+                  >
+                    <Box
+                      src={person.avatar}
+                      alt={person.name}
+                      component="img"
+                      width="100%"
+                      height="auto"
+                    />
+                  </Avatar>
+                </Box>
+                <Typography className={styles.avatarName}>
+                  {person.name}
+                </Typography>
+                <Typography className={styles.avatarTitle}>
+                  {person.role}
+                </Typography>
+                <Typography className={styles.avatarDescription}>
+                  {person.education}
+                </Typography>
+                <Box
+                  className={classNames(
+                    styles.flex,
+                    styles.avatarDescriptionContainer
+                  )}
+                >
+                  <Typography className={styles.avatarDescription}>
+                    {person.description}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
         </Grid>
       </Box>
     </Box>

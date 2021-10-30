@@ -1,6 +1,7 @@
 export const introData = {
-  dreamBig: "Dream big !!",
-  worryNot: "and worry not",
+  line1: "Aspirations are like trees without root. ",
+  line2: "And WE ROOT your aspirations firmly because",
+  line3: "we have strong ROOT when it comes to Design, Construction and Client Support.",
   weAreHereToAssist:
     "We are here to assist you to root your dreams into reality",
   evolvedToProviderBuildingSolutions:

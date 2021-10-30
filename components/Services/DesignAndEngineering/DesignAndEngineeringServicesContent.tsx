@@ -1,46 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Chip from "@mui/material/Chip";
-import React, { useState } from "react";
+import Elevation from "components/Shared/Elevation";
 import {
-  ICarouselImage,
-  ICarouselYoutube,
-  SvgImageProps,
+  SvgImageProps
 } from "components/Shared/Models/Model";
+import Plans from "components/Shared/Plans";
+import VideoWalkthrough from "components/Shared/VideoWalkthrough";
+import React, { useState } from "react";
 import styles from "../Services.module.css";
-import Carousel from "components/Shared/Carousel";
-import YoutubeCarousel from "components/Shared/YoutubeCarousel";
 
-const Elevation = () => {
-  const totalElevationImages = 19;
-  const indexes = Array.from(
-    { length: totalElevationImages },
-    (_, index) => index + 1
-  );
-
-  const carouselSteps: ICarouselImage[] = indexes.map((index) => {
-    const carouselStep: ICarouselImage = {
-      image: `/elevations/${index}.jpg`,
-    };
-
-    return carouselStep;
-  });
-
-  return <Carousel carrouselSteps={carouselSteps} />;
-};
-
-const VideoWalkthrough = () => {
-  const videoIds = ["KjbqMUxJCts", "KjbqMUxJCts", "KjbqMUxJCts"];
-
-  const carouselSteps: ICarouselYoutube[] = videoIds.map((videoId) => {
-    const carouselStep: ICarouselYoutube = {
-      videoId: videoId,
-    };
-
-    return carouselStep;
-  });
-
-  return <YoutubeCarousel carrouselSteps={carouselSteps} />;
-};
 
 export const DesignAndEngineeringServicesContentImage = (
   props: SvgImageProps
@@ -69,8 +37,11 @@ export const DesignAndEngineeringServicesContent = () => {
   };
 
   const [canShowElevation, setCanShowElevation] = useState(false);
+  const [canShowPlans, setCanShowPlans] = useState(false);
   const [canShowVideoWalkthrough, setCanShowVideoWalkthrough] = useState(false);
 
+  const [plansChipStyle, setPlansChipStyle] =
+    useState<ChipStyle>(unClickedChipStyle);
   const [elevationChipStyle, setElevationChipStyle] =
     useState<ChipStyle>(unClickedChipStyle);
   const [videoWalkthroughChipStyle, setVideoWalkthroughnChipStyle] =
@@ -79,15 +50,28 @@ export const DesignAndEngineeringServicesContent = () => {
   const handleElevationClick = () => {
     setElevationChipStyle(clickedChipStyle);
     setVideoWalkthroughnChipStyle(unClickedChipStyle);
+    setPlansChipStyle(unClickedChipStyle);
     setCanShowElevation(true);
     setCanShowVideoWalkthrough(false);
+    setCanShowPlans(false);
   };
 
   const handlevideoWalkthroughClick = () => {
     setElevationChipStyle(unClickedChipStyle);
+    setPlansChipStyle(unClickedChipStyle);
     setVideoWalkthroughnChipStyle(clickedChipStyle);
     setCanShowElevation(false);
     setCanShowVideoWalkthrough(true);
+    setCanShowPlans(false);
+  };
+
+  const handlePlansClick = () => {
+    setPlansChipStyle(clickedChipStyle);
+    setElevationChipStyle(unClickedChipStyle);
+    setVideoWalkthroughnChipStyle(unClickedChipStyle);
+    setCanShowElevation(false);
+    setCanShowVideoWalkthrough(false);
+    setCanShowPlans(true);
   };
 
   return (
@@ -126,7 +110,13 @@ export const DesignAndEngineeringServicesContent = () => {
           sx={{ display: "flex", justifyContent: "center" }}
         >
           <Grid item>
-            <Chip className={styles.chip} label="2D plan" variant="outlined" />
+            <Chip
+              className={styles.chip}
+              label="2D plan"
+              variant="outlined"
+              onClick={handlePlansClick}
+              style={plansChipStyle.style}
+            />
           </Grid>
           <Grid item>
             <Chip
@@ -147,6 +137,7 @@ export const DesignAndEngineeringServicesContent = () => {
         </Grid>
       </Box>
       <Box sx={{ marginTop: "1rem" }}>
+        {canShowPlans && <Plans />}
         {canShowElevation && <Elevation />}
         {canShowVideoWalkthrough && <VideoWalkthrough />}
       </Box>
