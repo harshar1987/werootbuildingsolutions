@@ -24,7 +24,6 @@ import {
 } from "./Services.data";
 import styles from "./Services.module.css";
 
-const EmptyLearnMoreContent = <div></div>;
 
 function Services() {
   type LearnMoreDetail = {

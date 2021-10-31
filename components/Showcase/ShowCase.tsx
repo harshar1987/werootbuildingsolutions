@@ -1,11 +1,12 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import classNames from "classnames";
 import Carousel from "components/Shared/Carousel";
 import { ICarouselImage } from "components/Shared/Models/Model";
 import * as React from "react";
+import { useState } from "react";
 import styles from "./ShowCase.module.css";
-
+import VideoWalkthroughCarousel from "./VideoWalkthrough";
 
 function shuffle<T>(array: Array<T>) {
   let currentIndex = array.length,
@@ -28,6 +29,8 @@ function shuffle<T>(array: Array<T>) {
 }
 
 export default function ShowCase() {
+  const [viewVideoWalkthrough, setViewVideoWalkthrough] = useState(false);
+
   const totalPlanImages = 10;
   const plansIndexes = Array.from(
     { length: totalPlanImages },
@@ -60,17 +63,30 @@ export default function ShowCase() {
   const shuffledCarouselSteps = shuffle(carouselSteps);
 
   return (
-    <Box>
-      <Carousel
-        carrouselSteps={shuffledCarouselSteps}
-        className={styles.carouselImage}
-      />
+    <Box sx={{ margin: "1rem" }}>
       <Box
-        className={classNames(styles.flex, styles.videoWalkthroughContainer)}
+        className={classNames(
+          styles.flex,
+          styles.plansElevationsSectionContainer
+        )}
       >
-        <Button variant="outlined" className={styles.videoWalkthrough}>
-          3D Walkthrough
-        </Button>
+        <Typography className={styles.plansElevationsSectionText}>
+          Plans / Elevations 
+        </Typography>
+      </Box>
+      <Box sx={{ margin: "3rem 1rem 1rem 1rem" }}>
+        <Carousel
+          carrouselSteps={shuffledCarouselSteps}
+          className={styles.carouselImage}
+        />
+        <Box
+          className={classNames(styles.flex, styles.videoWalkthroughContainer)}
+        >
+          <Button variant="outlined" className={styles.videoWalkthrough} onClick={() => setViewVideoWalkthrough(true)}>
+            3D Walkthrough
+          </Button>
+          <VideoWalkthroughCarousel open={viewVideoWalkthrough} title={"3D Walkthrough"} handleClose={() => setViewVideoWalkthrough(false)} />
+        </Box>
       </Box>
     </Box>
   );

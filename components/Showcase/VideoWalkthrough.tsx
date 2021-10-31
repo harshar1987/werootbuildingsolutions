@@ -6,7 +6,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
-import styles from "./LearnMore.module.css";
+import VideoWalkthrough from "components/Shared/VideoWalkthrough";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuDialogContent-root": {
@@ -27,7 +27,7 @@ const StyledDialogTitle = (props: DialogTitleProps) => {
 
   return (
     <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      <Typography component="h2" className={styles.dialogTitle}>
+      <Typography component="h2" sx={{fontSize: "1.25rem", fontWeight: 500}} >
         {title}
       </Typography>
       {onClose ? (
@@ -48,27 +48,27 @@ const StyledDialogTitle = (props: DialogTitleProps) => {
   );
 };
 
-export interface LearnMoreDialog {
+export interface VideoWalkthroughDialog {
   title: string;
   children: React.ReactNode;
   open: boolean;
   handleClose: () => void;
 }
 
-export default function LearnMoreDialog({
+function VideoWalkthroughDialog({
   title,
   children,
   open,
   handleClose,
-}: LearnMoreDialog) {
+}: VideoWalkthroughDialog) {
   return (
     <div>
       <StyledDialog
         onClose={handleClose}
-        aria-labelledby="learn-more"
+        aria-labelledby="3d-walkthrough"
         open={open}
         fullWidth
-        maxWidth={"lg"}
+       
       >
         <StyledDialogTitle
           title={title}
@@ -79,3 +79,21 @@ export default function LearnMoreDialog({
     </div>
   );
 }
+
+interface IVideoWalkthroughCarouselProps {
+  open: boolean;
+  title: string;
+  handleClose: () => void;
+}
+
+const VideoWalkthroughCarousel = ({
+  open,
+  title,
+  handleClose,
+}: IVideoWalkthroughCarouselProps) => (
+  <VideoWalkthroughDialog open={open} title={title} handleClose={handleClose}>
+    <VideoWalkthrough />
+  </VideoWalkthroughDialog>
+);
+
+export default VideoWalkthroughCarousel;

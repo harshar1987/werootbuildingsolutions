@@ -7,6 +7,20 @@
   display: flex;
 }
 
+.plansElevationsSectionContainer {
+    margin: 1.5rem;
+    justify-content: center;
+  }
+  
+  .plansElevationsSectionText {
+    font-size: 2.5rem !important;
+    font-weight: 600 !important;
+    border-width: 0;
+    border-style: solid;
+    border-color: rgba(0, 104, 20, 1);
+    border-bottom-width: 0.2rem;
+  }
+
 .videoWalkthroughContainer {
   justify-content: center;
   margin: 1rem;
