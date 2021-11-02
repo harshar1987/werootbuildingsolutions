@@ -9,10 +9,21 @@
 .image {
   height: auto;
   max-width: 80%;
+}
 
+@media only screen and (max-width: 600px) {
+  .image {
+    height: auto;
+    max-width: 100%;
+  }
 }
 
 .slide {
   display: flex;
   justify-content: center;
 }
+
+.stepper {
+  position: static
+}
+

@@ -1,7 +1,14 @@
 .carouselImage {
-  height: 500px !important;
+  height: 500px;
   max-width: 80%;
 }
+
+@media only screen and (max-width: 600px) {
+    .carouselImage {
+        height: auto;
+        max-width: 100%;
+    }
+  }
 
 .flex {
   display: flex;

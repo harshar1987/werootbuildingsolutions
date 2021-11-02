@@ -66,7 +66,7 @@ export default function Projects() {
   }, []);
 
   const imageCols = isMobile ? 1 : 7;
-
+  
   return (
     <Box sx={{ margin: "1rem" }}>
       <Box
@@ -92,8 +92,8 @@ export default function Projects() {
               component="img"
                 alt={image.title}
                 src={image.src}
-                height={image.height}
-                width={image.width}
+                height={isMobile ? "auto":  image.height}
+                width={isMobile ? "100%":  image.width}
               >
               </Box>
             </ImageListItem>

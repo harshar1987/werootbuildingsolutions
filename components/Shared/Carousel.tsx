@@ -15,26 +15,40 @@ export interface ICarrouselProps {
 }
 
 const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
+  const [currentStep, setCurrentStep] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
-
+  const stepPages = Math.ceil(carrouselSteps.length / 10);
+  const stepsPerPage = Math.floor(carrouselSteps.length / stepPages );
+  const maxSteps = stepsPerPage * stepPages;
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    setCurrentStep(currentStep + 1);
+
+    if (activeStep == stepsPerPage - 1) {
+      setActiveStep(0);
+    } else {
+      setActiveStep(activeStep + 1);
+    }
   };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    setCurrentStep(currentStep - 1);
+
+    if(activeStep == 0){
+      setActiveStep(stepsPerPage - 1)
+    } else {
+      setActiveStep(activeStep - 1);
+    }
   };
 
   const handleStepChange = (step: number) => {
-    setActiveStep(step);
+    setCurrentStep(step);
   };
 
-  const maxSteps = carrouselSteps.length;
   let canAutoPlay = false;
   if (autoPlay) {
     canAutoPlay = true;
   }
-  const carouselStyle = className ? className: styles.image;
+  const carouselStyle = className ? className : styles.image;
 
   const renderCarouselSteps = () => {
     return carrouselSteps.map((step, index) => {
@@ -43,8 +57,9 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
           key={step.title}
           sx={{ display: "flex", justifyContent: "center" }}
         >
-          {Math.abs(activeStep - index) <= 2 ? (
+          {Math.abs(currentStep - index) <= 2 ? (
             <Box
+              key={step.title}
               component="img"
               className={carouselStyle}
               src={step.image}
@@ -62,7 +77,7 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
         {canAutoPlay ? (
           <AutoPlaySwipeableViews
             axis={"x"}
-            index={activeStep}
+            index={currentStep}
             onChangeIndex={handleStepChange}
             slideClassName={styles.slide}
             enableMouseEvents
@@ -77,7 +92,7 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
         ) : (
           <SwipeableViews
             axis={"x"}
-            index={activeStep}
+            index={currentStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
             slideClassName={styles.slide}
@@ -93,19 +108,19 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
       </Box>
       <Paper square elevation={0}>
         <Typography className={styles.title}>
-          {carrouselSteps[activeStep].title}
+          {carrouselSteps[currentStep].title}
         </Typography>
       </Paper>
       <Box className={styles.slide}>
         <MobileStepper
-          steps={maxSteps}
-          position="static"
+          steps={stepsPerPage}
           activeStep={activeStep}
+          className={styles.stepper}
           nextButton={
             <Button
               size="small"
               onClick={handleNext}
-              disabled={activeStep === maxSteps - 1}
+              disabled={currentStep === maxSteps - 1}
             >
               <KeyboardArrowRight />
             </Button>
@@ -114,7 +129,7 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
             <Button
               size="small"
               onClick={handleBack}
-              disabled={activeStep === 0}
+              disabled={currentStep === 0}
             >
               <KeyboardArrowLeft />
             </Button>
