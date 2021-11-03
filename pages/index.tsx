@@ -16,7 +16,6 @@ const Home: NextPage = () => {
         <Divider variant="middle" />
       </Box>
       <Services />
-
       <Box className={styles.sectionDivider}>
         <Divider variant="middle" />
       </Box>

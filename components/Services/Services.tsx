@@ -23,7 +23,8 @@ import {
   servicesData,
 } from "./Services.data";
 import styles from "./Services.module.css";
-
+import Fade from "@mui/material/Fade";
+import VizSensor from "react-visibility-sensor";
 
 function Services() {
   type LearnMoreDetail = {
@@ -44,6 +45,13 @@ function Services() {
 
   const [learnMoreDetail, setLearnMoreDetails] =
     useState<LearnMoreDetail>(initialState);
+
+  const [ourServicesVisible, setOurServicesVisible] = useState(false);
+  const [advisoryServicesVisible, setAdvisoryServicesVisible] = useState(false);
+  const [designServicesVisible, setDesignServicesVisible] = useState(false);
+  const [projectExecutionServiecsVisible, setProjectExecutionServicesVisible] =
+    useState(false);
+  const [miscServicesVisible, setMiscServicesVisible] = useState(false);
 
   const handleLearnMoreClose = () => {
     setLearnMoreDetails(initialState);
@@ -107,9 +115,17 @@ function Services() {
               styles.ourServicesSectionContainer
             )}
           >
-            <Typography className={styles.ourServicesSectionText}>
-              Our Services
-            </Typography>
+            <VizSensor
+              onChange={(isVisible) => {
+                setOurServicesVisible(isVisible);
+              }}
+            >
+              <Fade in={ourServicesVisible} timeout={3000}>
+                <Typography className={styles.ourServicesSectionText}>
+                  Our Services
+                </Typography>
+              </Fade>
+            </VizSensor>
           </Box>
         </Grid>
         <Grid item xs={12}>
@@ -117,119 +133,134 @@ function Services() {
             className={styles.ourServicesSectionContentGroupContainer}
             sx={{ justifyContent: "space-between" }}
           >
-            <Box className={styles.ourServicesSectionContentContainer}>
-              <div className={styles.ourServicesSectionContentImage}>
-                <AdvisoryServicesImage style={{ width: "5rem" }} />
-              </div>
-              <Typography
-                className={classNames(
-                  styles.flex,
-                  styles.ourServicesSectionContentHeaderText
-                )}
-              >
-                {servicesData.advisory}
-              </Typography>
-              <Box className={styles.ourServicesSectionContentTextContainer}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {advisoryServicesInfo.first}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {advisoryServicesInfo.second}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                </Grid>
-                <Box
-                  className={classNames(
-                    styles.flex,
-                    styles.learnMoreButtonContainer
-                  )}
+            <Fade in={advisoryServicesVisible} timeout={3000}>
+              <Box className={styles.ourServicesSectionContentContainer}>
+                <div className={styles.ourServicesSectionContentImage}>
+                  <AdvisoryServicesImage style={{ width: "5rem" }} />
+                </div>
+                <VizSensor
+                  onChange={(isVisible) => {
+                    setAdvisoryServicesVisible(isVisible);
+                  }}
                 >
-                  <Button
-                    variant="outlined"
-                    className={styles.learnMoreButton}
-                    onClick={learnMoreOnAdvisoryServices}
+                  <Typography
+                    className={classNames(
+                      styles.flex,
+                      styles.ourServicesSectionContentHeaderText
+                    )}
                   >
-                    {servicesData.learnMore}
-                  </Button>
+                    {servicesData.advisory}
+                  </Typography>
+                </VizSensor>
+                <Box className={styles.ourServicesSectionContentTextContainer}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {advisoryServicesInfo.first}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {advisoryServicesInfo.second}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                  <Box
+                    className={classNames(
+                      styles.flex,
+                      styles.learnMoreButtonContainer
+                    )}
+                  >
+                    <Button
+                      variant="outlined"
+                      className={styles.learnMoreButton}
+                      onClick={learnMoreOnAdvisoryServices}
+                    >
+                      {servicesData.learnMore}
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-
-            <Box className={styles.ourServicesSectionContentContainer}>
-              <div className={styles.ourServicesSectionContentImage}>
-                <DesignAndEngineeringServicesContentImage
-                  style={{ width: "5rem" }}
-                />
-              </div>
-              <Typography
-                className={classNames(
-                  styles.flex,
-                  styles.ourServicesSectionContentHeaderText
-                )}
-              >
-                {servicesData.designAndEngineering}
-              </Typography>
-              <Box className={styles.ourServicesSectionContentTextContainer}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {designAndEngineeringInfo.first}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {designAndEngineeringInfo.second}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                </Grid>
-                <Box
-                  className={classNames(
-                    styles.flex,
-                    styles.learnMoreButtonContainer
-                  )}
+            </Fade>
+            <Fade in={designServicesVisible} timeout={3000}>
+              <Box className={styles.ourServicesSectionContentContainer}>
+                <div className={styles.ourServicesSectionContentImage}>
+                  <DesignAndEngineeringServicesContentImage
+                    style={{ width: "5rem" }}
+                  />
+                </div>
+                <VizSensor
+                  onChange={(isVisible) => {
+                    setDesignServicesVisible(isVisible);
+                  }}
                 >
-                  <Button
-                    variant="outlined"
-                    className={styles.learnMoreButton}
-                    onClick={learnMoreOnDesignAndEngineeringServices}
+                  <Typography
+                    className={classNames(
+                      styles.flex,
+                      styles.ourServicesSectionContentHeaderText
+                    )}
                   >
-                    {servicesData.learnMore}
-                  </Button>
+                    {servicesData.designAndEngineering}
+                  </Typography>
+                </VizSensor>
+                <Box className={styles.ourServicesSectionContentTextContainer}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {designAndEngineeringInfo.first}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {designAndEngineeringInfo.second}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                  <Box
+                    className={classNames(
+                      styles.flex,
+                      styles.learnMoreButtonContainer
+                    )}
+                  >
+                    <Button
+                      variant="outlined"
+                      className={styles.learnMoreButton}
+                      onClick={learnMoreOnDesignAndEngineeringServices}
+                    >
+                      {servicesData.learnMore}
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+            </Fade>
           </Box>
         </Grid>
         <Grid item xs={12}>
@@ -237,146 +268,164 @@ function Services() {
             className={styles.ourServicesSectionContentGroupContainer}
             sx={{ justifyContent: "space-between" }}
           >
-            <Box className={styles.ourServicesSectionContentContainer}>
-              <div className={styles.ourServicesSectionContentImage}>
-                <DesignAndEngineeringServicesContentImage
-                  style={{ width: "5rem" }}
-                />
-              </div>
-              <Typography
-                className={classNames(
-                  styles.flex,
-                  styles.ourServicesSectionContentHeaderText
-                )}
-              >
-                {servicesData.projectExecution}
-              </Typography>
-              <Box className={styles.ourServicesSectionContentTextContainer}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {projectExecutionInfo.first}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {projectExecutionInfo.second}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {projectExecutionInfo.third}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                </Grid>
-                <Box
-                  className={classNames(
-                    styles.flex,
-                    styles.learnMoreButtonContainer
-                  )}
+            <Fade in={projectExecutionServiecsVisible} timeout={3000}>
+              <Box className={styles.ourServicesSectionContentContainer}>
+                <div className={styles.ourServicesSectionContentImage}>
+                  <DesignAndEngineeringServicesContentImage
+                    style={{ width: "5rem" }}
+                  />
+                </div>
+                <VizSensor
+                  onChange={(isVisible) => {
+                    setProjectExecutionServicesVisible(isVisible);
+                  }}
                 >
-                  <Button
-                    variant="outlined"
-                    className={styles.learnMoreButton}
-                    onClick={learnMoreOnProjectExecutionAndMonitoringServices}
+                  <Typography
+                    className={classNames(
+                      styles.flex,
+                      styles.ourServicesSectionContentHeaderText
+                    )}
                   >
-                    {servicesData.learnMore}
-                  </Button>
+                    {servicesData.projectExecution}
+                  </Typography>
+                </VizSensor>
+                <Box className={styles.ourServicesSectionContentTextContainer}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {projectExecutionInfo.first}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {projectExecutionInfo.second}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {projectExecutionInfo.third}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                  <Box
+                    className={classNames(
+                      styles.flex,
+                      styles.learnMoreButtonContainer
+                    )}
+                  >
+                    <Button
+                      variant="outlined"
+                      className={styles.learnMoreButton}
+                      onClick={learnMoreOnProjectExecutionAndMonitoringServices}
+                    >
+                      {servicesData.learnMore}
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-
-            <Box className={styles.ourServicesSectionContentContainer}>
-              <div className={styles.ourServicesSectionContentImage}>
-                <MiscellaneousServicesContentImage style={{ width: "5rem" }} />
-              </div>
-              <Typography
-                className={classNames(
-                  styles.flex,
-                  styles.ourServicesSectionContentHeaderText
-                )}
-              >
-                {servicesData.miscellaneous}
-              </Typography>
-              <Box className={styles.ourServicesSectionContentTextContainer}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {miscellaneousInfo.first}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {miscellaneousInfo.second}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box
-                      className={styles.flex}
-                      sx={{ justifyContent: "center" }}
-                    >
-                      <Typography
-                        className={styles.ourServicesSectionContentText}
-                      >
-                        {miscellaneousInfo.third}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                </Grid>
-                <Box
-                  className={classNames(
-                    styles.flex,
-                    styles.learnMoreButtonContainer
-                  )}
+            </Fade>
+            <Fade in={miscServicesVisible} timeout={3000}>
+              <Box className={styles.ourServicesSectionContentContainer}>
+                <div className={styles.ourServicesSectionContentImage}>
+                  <MiscellaneousServicesContentImage
+                    style={{ width: "5rem" }}
+                  />
+                </div>
+                <VizSensor
+                  onChange={(isVisible) => {
+                    setMiscServicesVisible(isVisible);
+                  }}
                 >
-                  <Button
-                    variant="outlined"
-                    className={styles.learnMoreButton}
-                    onClick={learnMoreOnMiscellaneousServices}
+                  <Typography
+                    className={classNames(
+                      styles.flex,
+                      styles.ourServicesSectionContentHeaderText
+                    )}
                   >
-                    {servicesData.learnMore}
-                  </Button>
+                    {servicesData.miscellaneous}
+                  </Typography>
+                </VizSensor>
+                <Box className={styles.ourServicesSectionContentTextContainer}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {miscellaneousInfo.first}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {miscellaneousInfo.second}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box
+                        className={styles.flex}
+                        sx={{ justifyContent: "center" }}
+                      >
+                        <Typography
+                          className={styles.ourServicesSectionContentText}
+                        >
+                          {miscellaneousInfo.third}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                  <Box
+                    className={classNames(
+                      styles.flex,
+                      styles.learnMoreButtonContainer
+                    )}
+                  >
+                    <Button
+                      variant="outlined"
+                      className={styles.learnMoreButton}
+                      onClick={learnMoreOnMiscellaneousServices}
+                    >
+                      {servicesData.learnMore}
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+            </Fade>
           </Box>
         </Grid>
       </Grid>
+
       {openAdvisoryServices && (
         <LearnMoreDialog
           open={openAdvisoryServices}

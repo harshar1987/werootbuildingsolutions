@@ -23,7 +23,6 @@
   justify-content: center;
 }
 
-.stepper {
-  position: static
+div .imageHover:hover {
+  cursor: pointer;
 }
-

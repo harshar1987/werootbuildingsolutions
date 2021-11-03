@@ -31,6 +31,7 @@ function shuffle<T>(array: Array<T>) {
 export default function ShowCase() {
   const [viewVideoWalkthrough, setViewVideoWalkthrough] = useState(false);
 
+
   const totalPlanImages = 10;
   const plansIndexes = Array.from(
     { length: totalPlanImages },
@@ -71,21 +72,31 @@ export default function ShowCase() {
         )}
       >
         <Typography className={styles.plansElevationsSectionText}>
-          Plans / Elevations 
+          Plans / Elevations
         </Typography>
       </Box>
       <Box sx={{ margin: "3rem 1rem 1rem 1rem" }}>
         <Carousel
           carrouselSteps={shuffledCarouselSteps}
           className={styles.carouselImage}
+          autoPlay={true}
         />
         <Box
           className={classNames(styles.flex, styles.videoWalkthroughContainer)}
         >
-          <Button variant="outlined" className={styles.videoWalkthrough} onClick={() => setViewVideoWalkthrough(true)}>
+          <Button
+            variant="outlined"
+            className={styles.videoWalkthrough}
+            onClick={() => setViewVideoWalkthrough(true)}
+          >
             3D Walkthrough
           </Button>
-          <VideoWalkthroughCarousel open={viewVideoWalkthrough} title={"3D Walkthrough"} handleClose={() => setViewVideoWalkthrough(false)} />
+
+          <VideoWalkthroughCarousel
+            open={viewVideoWalkthrough}
+            title={"3D Walkthrough"}
+            handleClose={() => setViewVideoWalkthrough(false)}
+          />
         </Box>
       </Box>
     </Box>

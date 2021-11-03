@@ -5,6 +5,8 @@ import ImageListItem from "@mui/material/ImageListItem";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import styles from "./Projects.module.css";
+import Fade from "@mui/material/Fade";
+import VizSensor from "react-visibility-sensor";
 
 type ImageData = {
   src: string;
@@ -56,6 +58,7 @@ const imageData: ImageData[] = [
 
 export default function Projects() {
   const [isMobile, setIsMobile] = useState(false);
+  const [componentVisible, setComponentVisible] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 600px)");
@@ -66,40 +69,53 @@ export default function Projects() {
   }, []);
 
   const imageCols = isMobile ? 1 : 7;
-  
+
   return (
-    <Box sx={{ margin: "1rem" }}>
-      <Box
-        className={classNames(styles.flex, styles.ourProjectsSectionContainer)}
-      >
-        <Typography className={styles.ourProjectsSectionText}>
-          Our Projects
-        </Typography>
-      </Box>
-      <Box className={styles.flex} sx={{ justifyContent: "center" }}>
-        <ImageList
-          className={styles.imageList}
-          variant="quilted"
-          cols={imageCols}
+    <Fade in={componentVisible} timeout={3000}>
+      <Box sx={{ margin: "1rem" }}>
+        <Box
+          className={classNames(
+            styles.flex,
+            styles.ourProjectsSectionContainer
+          )}
         >
-          {imageData.map((image) => (
-            <ImageListItem
-              key={image.src}
-              cols={image.cols || 1}
-              rows={image.rows || 1}
-            >
-              <Box
-              component="img"
-                alt={image.title}
-                src={image.src}
-                height={isMobile ? "auto":  image.height}
-                width={isMobile ? "100%":  image.width}
+          <VizSensor
+            onChange={(isVisible) => {
+              if(!componentVisible){
+                setComponentVisible(isVisible);
+              }
+            }}
+          >
+            <Typography className={styles.ourProjectsSectionText}>
+              Our Projects
+            </Typography>
+          </VizSensor>
+        </Box>
+        <Box className={styles.flex} sx={{ justifyContent: "center" }}>
+          <ImageList
+            className={styles.imageList}
+            variant="quilted"
+            cols={imageCols}
+          >
+            {imageData.map((image) => (
+              <ImageListItem
+                key={image.src}
+                cols={image.cols || 1}
+                rows={image.rows || 1}
               >
-              </Box>
-            </ImageListItem>
-          ))}
-        </ImageList>
+
+                  <Box
+                    component="img"
+                    alt={image.title}
+                    src={image.src}
+                    height={isMobile ? "auto" : image.height}
+                    width={isMobile ? "100%" : image.width}
+                  ></Box>
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </Box>
       </Box>
-    </Box>
+    </Fade>
   );
 }

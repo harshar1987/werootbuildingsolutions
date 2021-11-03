@@ -37,6 +37,10 @@
   .imageContainer {
     display: none;
   }
+
+  .headerTextContainer {
+    width: 100%;
+  }
 }
 
 
