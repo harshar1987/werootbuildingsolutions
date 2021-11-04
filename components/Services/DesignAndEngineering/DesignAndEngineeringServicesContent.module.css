@@ -1,0 +1,17 @@
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem !important;
+}
+
+.image {
+    width: 50%;
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .image {
+      width: 100% !important;
+    }
+  }

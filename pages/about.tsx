@@ -7,6 +7,7 @@ import Why from "../public/why.jpg";
 import styles from "./about.module.css";
 import Fade from "@mui/material/Fade";
 import VizSensor from "react-visibility-sensor";
+import WhyUs from "public/whyus.png";
 
 type Person = {
   name: string;
@@ -145,6 +146,14 @@ function About() {
                 </span>{" "}
                 with the constant quest for top-class quality
               </Typography>
+              <Box className={styles.whyUsImageContainer}>
+                <Box
+                  component="img"
+                  src={WhyUs}
+                  alt="Why us"
+                  className={styles.whyUsImage}
+                ></Box>
+              </Box>
             </Box>
           </Box>
           <Box className={styles.imageContainer} width="50%">
@@ -206,7 +215,7 @@ function About() {
                         onChange={(isVisible) => {
                           if (isVisible) {
                             setVisibleAvatars([...visibleAvatars, person.name]);
-                          } 
+                          }
                         }}
                         key={person.name}
                       >

@@ -10,7 +10,6 @@
 }
 
 .headerContainer {
-  padding-bottom: 10px;
   background: rgba(34, 60, 0, 1);
 }
 
@@ -23,7 +22,7 @@ div .headerLogo:hover {
 }
 
 .headerLogo {
-  background: rgb(142,127,0);
+  background: rgba(255,214,92,255);
   border-radius: 50%;
   margin: 1rem 0rem 1rem 1rem;
 }

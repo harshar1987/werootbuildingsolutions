@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { SvgImageProps } from "components/Shared/Models/Model";
 import styles from "../Services.module.css";
+import peStyles from "./ProjectExecutionAndMonitoringServicesContent.module.css";
+import PE from "public/pe.png";
 
 export const ProjectExecutionAndMonitoringImage = (props: SvgImageProps) => {
   return (
@@ -17,6 +19,14 @@ export const ProjectExecutionAndMonitoringImage = (props: SvgImageProps) => {
 export const ProjectExecutionAndMonitoringServicesContent = () => {
   return (
     <Box>
+      <Box className={peStyles.imageContainer}>
+        <Box
+          component="img"
+          src={PE}
+          alt="Project execution"
+          className={peStyles.image}
+        ></Box>
+      </Box>
       <Typography gutterBottom>
         <span className={styles.learnMoreTextHighLight}>
           Proper construction and monitoring is a requisite{" "}

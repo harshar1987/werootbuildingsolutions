@@ -2,14 +2,13 @@
   display: flex;
 }
 
-
 .aboutContainer {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .headerTextContainer {
-    justify-content: center;
-    flex-flow: column;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .headerText {
@@ -19,13 +18,12 @@
   border-style: solid;
   border-color: rgba(0, 104, 20, 1);
   border-bottom-width: 0.2rem;
-
 }
 
 .contentText {
-    text-align: center !important;
-    margin: 1rem !important;
-    font-size: 20px !important;
+  text-align: center !important;
+  margin: 1rem !important;
+  font-size: 20px !important;
 }
 
 .higlightedText {
@@ -42,7 +40,6 @@
     width: 100% !important;
   }
 }
-
 
 .meetTheTeamHeader {
   justify-content: center;
@@ -65,7 +62,7 @@
   justify-content: center;
   text-transform: uppercase;
   font-size: 1.3rem !important;
-  font-weight: 600 !important; 
+  font-weight: 600 !important;
   text-align: center;
 }
 
@@ -100,4 +97,20 @@
 .image {
   height: auto;
   max-width: 100%;
+}
+
+.whyUsImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.whyUsImage {
+  height: auto;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .whyUsImageContainer {
+    display: none;
+  }
 }

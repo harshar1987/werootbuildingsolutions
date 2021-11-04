@@ -64,8 +64,6 @@ const Carousel = ({ carrouselSteps, autoPlay, className }: ICarrouselProps) => {
         >
           {Math.abs(currentStep - index) <= 2 ? (
             <Box
-              // onMouseEnter={() => setStartAutoPlay(false)}
-              // onMouseLeave={() => setStartAutoPlay(true)}
               key={step.title}
               component="img"
               className={classNames(carouselStyle, styles.imageHover)}

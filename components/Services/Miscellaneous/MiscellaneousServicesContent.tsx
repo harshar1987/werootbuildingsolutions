@@ -3,6 +3,8 @@ import Chip from "@mui/material/Chip";
 import React from "react";
 import { SvgImageProps } from "components/Shared/Models/Model";
 import styles from "../Services.module.css";
+import miscStyles from "./MiscellaneousServicesContent.module.css";
+import MISC from "public/misc.png";
 
 export const MiscellaneousServicesContentImage = (props: SvgImageProps) => {
   return (
@@ -17,6 +19,14 @@ export const MiscellaneousServicesContentImage = (props: SvgImageProps) => {
 export const MiscellaneousServicesContent = () => {
   return (
     <Box>
+      <Box className={miscStyles.imageContainer}>
+        <Box
+          component="img"
+          src={MISC}
+          alt="Miscellaneous"
+          className={miscStyles.image}
+        ></Box>
+      </Box>
       <Typography gutterBottom>
         <span className={styles.learnMoreTextHighLight}>
           With the intention to block the unwanted hassles for the client{" "}

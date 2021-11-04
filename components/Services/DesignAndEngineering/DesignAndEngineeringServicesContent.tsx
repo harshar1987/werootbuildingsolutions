@@ -1,14 +1,13 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import Elevation from "components/Shared/Elevation";
-import {
-  SvgImageProps
-} from "components/Shared/Models/Model";
+import { SvgImageProps } from "components/Shared/Models/Model";
 import Plans from "components/Shared/Plans";
 import VideoWalkthrough from "components/Shared/VideoWalkthrough";
 import React, { useState } from "react";
 import styles from "../Services.module.css";
-
+import deStyles from "./DesignAndEngineeringServicesContent.module.css";
+import DE from "public/de.png";
 
 export const DesignAndEngineeringServicesContentImage = (
   props: SvgImageProps
@@ -76,6 +75,14 @@ export const DesignAndEngineeringServicesContent = () => {
 
   return (
     <Box>
+      <Box className={deStyles.imageContainer}>
+        <Box
+          component="img"
+          src={DE}
+          alt="Design and Engineering"
+          className={deStyles.image}
+        ></Box>
+      </Box>
       <Typography gutterBottom>
         We are always ready to take up any challenging project and strive to
         provide the innovative and comprehensive engineering solutions to meet

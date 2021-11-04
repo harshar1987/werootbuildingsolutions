@@ -1,15 +1,14 @@
 import { Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import React, { useState } from "react";
-import { layoutData } from "components/Layout/Layout.data";
+import Fade from "@mui/material/Fade";
+import { useRouter } from "next/router";
 import home from "public/home.png";
+import React, { useState } from "react";
+import VizSensor from "react-visibility-sensor";
 import { introData } from "./Introduction.data";
 import styles from "./Introduction.module.css";
 import LeaveUsMessageDialog from "./LeaveUsMessage";
-import { useRouter } from "next/router";
-import Fade from "@mui/material/Fade";
-import VizSensor from "react-visibility-sensor";
 
 const Intro = () => {
   const router = useRouter();
